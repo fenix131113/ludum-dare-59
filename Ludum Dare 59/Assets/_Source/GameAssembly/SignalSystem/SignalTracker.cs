@@ -34,7 +34,7 @@ namespace SignalSystem
             var minTrackDistance = signal.GetSignalRadius();
             var distance = Vector2.Distance(trackFromTarget.position, signal.transform.position);
             var from = distance > minTrackDistance ? distance : minTrackDistance;
-            var result = Mathf.Clamp((from - minTrackDistance) / (maxTrackDistance - minTrackDistance), 0, 1);
+            var result = 1f - Mathf.Clamp((from - minTrackDistance) / (maxTrackDistance - minTrackDistance), 0, 1);
 
             if (!Mathf.Approximately(result, _signalPower))
                 SetSignalPower(result);
@@ -42,7 +42,7 @@ namespace SignalSystem
 
         private void OnSendSignalClicked()
         {
-            if (_signalPower != 0 || !_signalHolder.GetCurrentSignal() ||
+            if (!Mathf.Approximately(_signalPower, 1f) || !_signalHolder.GetCurrentSignal() ||
                 _playerVariables.IsVariableBlocked(PlayerVariableBlockerType.SEND_SIGNAL))
                 return;
 

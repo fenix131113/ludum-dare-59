@@ -22,10 +22,9 @@ namespace TimerSystem
             }
         }
         
-        private void OnTimeElapsed(Timer timer)
-        {
-            _timers.Remove(timer.ID);
-        }
+        private void OnTimeElapsed(Timer timer) => _timers.Remove(timer.ID);
+
+        public Timer GetTimer(short id) => _timers.GetValueOrDefault(id);
 
         public bool IsTimerValid(short id) => _timers.ContainsKey(id);
 
