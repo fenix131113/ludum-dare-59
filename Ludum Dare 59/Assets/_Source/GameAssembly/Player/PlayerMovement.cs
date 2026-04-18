@@ -30,13 +30,14 @@ namespace Player
             rb.linearVelocity = _input.ReadMoveVector() * _playerSettings.MoveSpeed;
         }
 
-        public void ApplyEffect(BaseEffect effect)
+        public bool ApplyEffect(BaseEffect effect)
         {
             if (effect is not StunEffect || _currentEffect is not (null or { IsActive: false }))
-                return;
+                return false;
             
             _currentEffect = effect;
             _playerVariables.RegisterBlocker(_stunBlocker);
+            return true;
         }
 
         public void DisposeEffect(BaseEffect effect)

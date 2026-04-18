@@ -2,7 +2,7 @@
 {
     public interface IEffectAddicted
     {
-        void ApplyEffect(BaseEffect effect);
+        bool ApplyEffect(BaseEffect effect);
         void DisposeEffect(BaseEffect effect);
     }
 }

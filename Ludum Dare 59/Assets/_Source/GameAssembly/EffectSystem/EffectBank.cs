@@ -25,8 +25,10 @@ namespace EffectSystem
             if(_effects.Contains(effect))
                 return;
             
+            if(!effect.Target.ApplyEffect(effect))
+                return;
+            
             _effects.Add(effect);
-            effect.Target.ApplyEffect(effect);
             effect.OnEffectEnded += OnEffectEnded;
         }
 
