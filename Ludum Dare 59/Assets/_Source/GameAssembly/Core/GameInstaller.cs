@@ -1,3 +1,4 @@
+using EffectSystem;
 using LevelsSystem;
 using Player;
 using Player.Data;
@@ -51,6 +52,14 @@ namespace Core
 
             builder.RegisterComponentInHierarchy<SignalHolder>();
             builder.RegisterComponentInHierarchy<SignalTracker>();
+
+            #endregion
+
+            #region Effects
+
+            builder.Register<EffectBank>(Lifetime.Scoped)
+                .As<ITickable>()
+                .AsSelf();
 
             #endregion
         }
