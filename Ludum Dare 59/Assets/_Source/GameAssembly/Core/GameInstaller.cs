@@ -4,6 +4,7 @@ using Player;
 using Player.Data;
 using Player.Variables;
 using SignalSystem;
+using TimerSystem;
 using UnityEngine;
 using Utils;
 using VContainer;
@@ -55,13 +56,12 @@ namespace Core
 
             #endregion
 
-            #region Effects
-
             builder.Register<EffectBank>(Lifetime.Scoped)
                 .As<ITickable>()
                 .AsSelf();
-
-            #endregion
+            builder.Register<TimersHandler>(Lifetime.Scoped)
+                .As<ITickable>()
+                .AsSelf();
         }
 
         private void Start()
