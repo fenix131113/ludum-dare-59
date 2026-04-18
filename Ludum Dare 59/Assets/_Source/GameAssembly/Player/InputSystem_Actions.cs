@@ -113,7 +113,7 @@ namespace Player
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Interact"",
+                    ""name"": ""SendSignal"",
                     ""type"": ""Button"",
                     ""id"": ""852140f2-7766-474d-8707-702459ba45f3"",
                     ""expectedControlType"": """",
@@ -370,7 +370,7 @@ namespace Player
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard&Mouse"",
-                    ""action"": ""Interact"",
+                    ""action"": ""SendSignal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -381,7 +381,7 @@ namespace Player
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
-                    ""action"": ""Interact"",
+                    ""action"": ""SendSignal"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -455,7 +455,7 @@ namespace Player
             m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
             m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
             m_Player_Attack = m_Player.FindAction("Attack", throwIfNotFound: true);
-            m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+            m_Player_SendSignal = m_Player.FindAction("SendSignal", throwIfNotFound: true);
             m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         }
 
@@ -539,7 +539,7 @@ namespace Player
         private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
         private readonly InputAction m_Player_Move;
         private readonly InputAction m_Player_Attack;
-        private readonly InputAction m_Player_Interact;
+        private readonly InputAction m_Player_SendSignal;
         private readonly InputAction m_Player_Sprint;
         /// <summary>
         /// Provides access to input actions defined in input action map "Player".
@@ -561,9 +561,9 @@ namespace Player
             /// </summary>
             public InputAction @Attack => m_Wrapper.m_Player_Attack;
             /// <summary>
-            /// Provides access to the underlying input action "Player/Interact".
+            /// Provides access to the underlying input action "Player/SendSignal".
             /// </summary>
-            public InputAction @Interact => m_Wrapper.m_Player_Interact;
+            public InputAction @SendSignal => m_Wrapper.m_Player_SendSignal;
             /// <summary>
             /// Provides access to the underlying input action "Player/Sprint".
             /// </summary>
@@ -600,9 +600,9 @@ namespace Player
                 @Attack.started += instance.OnAttack;
                 @Attack.performed += instance.OnAttack;
                 @Attack.canceled += instance.OnAttack;
-                @Interact.started += instance.OnInteract;
-                @Interact.performed += instance.OnInteract;
-                @Interact.canceled += instance.OnInteract;
+                @SendSignal.started += instance.OnSendSignal;
+                @SendSignal.performed += instance.OnSendSignal;
+                @SendSignal.canceled += instance.OnSendSignal;
                 @Sprint.started += instance.OnSprint;
                 @Sprint.performed += instance.OnSprint;
                 @Sprint.canceled += instance.OnSprint;
@@ -623,9 +623,9 @@ namespace Player
                 @Attack.started -= instance.OnAttack;
                 @Attack.performed -= instance.OnAttack;
                 @Attack.canceled -= instance.OnAttack;
-                @Interact.started -= instance.OnInteract;
-                @Interact.performed -= instance.OnInteract;
-                @Interact.canceled -= instance.OnInteract;
+                @SendSignal.started -= instance.OnSendSignal;
+                @SendSignal.performed -= instance.OnSendSignal;
+                @SendSignal.canceled -= instance.OnSendSignal;
                 @Sprint.started -= instance.OnSprint;
                 @Sprint.performed -= instance.OnSprint;
                 @Sprint.canceled -= instance.OnSprint;
@@ -749,12 +749,12 @@ namespace Player
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnAttack(InputAction.CallbackContext context);
             /// <summary>
-            /// Method invoked when associated input action "Interact" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// Method invoked when associated input action "SendSignal" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>
             /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
-            void OnInteract(InputAction.CallbackContext context);
+            void OnSendSignal(InputAction.CallbackContext context);
             /// <summary>
             /// Method invoked when associated input action "Sprint" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
             /// </summary>

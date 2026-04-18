@@ -12,11 +12,11 @@
   <component name="ChangeListManager">
     <list default="true" id="fb5a9a38-eacc-4c9f-bef0-961ff49b7821" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Ludum Dare 59/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Ludum Dare 59/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Scenes/SampleScene.unity" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Scenes/SampleScene.unity.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/InputSystem_Actions.inputactions" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/InputSystem_Actions.inputactions" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Scenes/Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Scenes/Test.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/Core/GameInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/Core/GameInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/Player/InputSystem_Actions.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/Player/InputSystem_Actions.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/Player/PlayerInput.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/Player/PlayerInput.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +30,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c80b42b80a6b4f929e8a04e3926765411f5a00/b5/9b453f6a/Mathf.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c80b42b80a6b4f929e8a04e3926765411f5a00/dd/45f9a4d1/Quaternion.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d44b17e136d09081da1e8fd0e8c83fde60e11818b9f2442d7ed8cb733fae895e/System.Collections.Generic.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/Core/MenuInstaller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/LevelsSystem/LevelsRecorder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/Menu/LevelButton.cs" root0="FORCE_HIGHLIGHTING" />
@@ -40,6 +43,10 @@
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/Player/PlayerMovement.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/Player/Variables/PlayerVariableBlocker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/Player/Variables/PlayerVariables.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/SignalSystem/SignalEmitter.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/SignalSystem/SignalHolder.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/SignalSystem/SignalTracker.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/SignalSystem/View/SignalPowerView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/Utils/SceneLoader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/Utils/VariablesSystem/IVariableBlocker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/Utils/VariablesSystem/IVariablesResolver.cs" root0="FORCE_HIGHLIGHTING" />
@@ -49,6 +56,7 @@
     <commands />
     <urls />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5,
   &quot;fromUser&quot;: false
@@ -127,13 +135,14 @@
       <option name="presentableId" value="Default" />
       <updated>1776483829139</updated>
       <workItem from="1776483829141" duration="2000" />
-      <workItem from="1776499712605" duration="10282000" />
+      <workItem from="1776499712605" duration="14825000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityProjectDiscoverer">
     <option name="hasUnityReference" value="true" />

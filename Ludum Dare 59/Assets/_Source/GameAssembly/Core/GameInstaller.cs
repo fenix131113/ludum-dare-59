@@ -2,6 +2,7 @@ using LevelsSystem;
 using Player;
 using Player.Data;
 using Player.Variables;
+using SignalSystem;
 using UnityEngine;
 using Utils;
 using VContainer;
@@ -43,6 +44,13 @@ namespace Core
             builder.Register<PlayerVariables>(Lifetime.Scoped)
                 .AsImplementedInterfaces()
                 .AsSelf();
+
+            #endregion
+
+            #region Signal
+
+            builder.RegisterComponentInHierarchy<SignalHolder>();
+            builder.RegisterComponentInHierarchy<SignalTracker>();
 
             #endregion
         }
