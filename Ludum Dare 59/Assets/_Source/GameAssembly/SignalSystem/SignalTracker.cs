@@ -1,4 +1,6 @@
 ﻿using System;
+using MiniGames;
+using MiniGames.Games.Clicker;
 using Player;
 using Player.Data;
 using UnityEngine;
@@ -46,7 +48,7 @@ namespace SignalSystem
                 _playerVariables.IsVariableBlocked(PlayerVariableBlockerType.SEND_SIGNAL))
                 return;
 
-            _signalHolder.GetCurrentSignal().SendSignal();
+            FindFirstObjectByType<MinigamesManager>().PlayMinigame(FindFirstObjectByType<ClickerMinigame>(FindObjectsInactive.Include), _signalHolder.GetCurrentSignal());
         }
 
         private void SetSignalPower(float power)

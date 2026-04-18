@@ -25,7 +25,10 @@ namespace Player
         private void Update()
         {
             if (_playerVariables.IsVariableBlocked(PlayerVariableBlockerType.MOVEMENT))
+            {
+                rb.linearVelocity = Vector2.zero;
                 return;
+            }
 
             rb.linearVelocity = _input.ReadMoveVector() * _playerSettings.MoveSpeed;
         }

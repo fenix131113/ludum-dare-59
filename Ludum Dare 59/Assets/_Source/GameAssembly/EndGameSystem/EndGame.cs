@@ -17,10 +17,10 @@ namespace EndGameSystem
         public event Action<bool> OnGameEnded;
 
         [Inject]
-        private void Construct(GameTimerCondition gameTimers, LevelsRecorder levelsRecorder, LevelDataSO levelDataSO)
+        private void Construct(IObjectResolver resolver, GameTimerCondition gameTimers, LevelDataSO levelDataSO)
         {
             _gameTimers = gameTimers;
-            _levelsRecorder = levelsRecorder;
+            _levelsRecorder = resolver.ResolveOrDefault<LevelsRecorder>();
             _levelData = levelDataSO;
             
             Bind();
@@ -30,7 +30,7 @@ namespace EndGameSystem
 
         private void End(bool isWin)
         {
-            if (isWin)
+            if (isWin && _levelsRecorder)
                 _levelsRecorder.MarkLevelAsCompleted(_levelData.LevelNumber);
             
             IsEnded = true;

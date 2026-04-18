@@ -2,6 +2,7 @@ using EffectSystem;
 using EndGameSystem;
 using LevelsSystem;
 using LevelsSystem.Data;
+using MiniGames;
 using Player;
 using Player.Data;
 using Player.Variables;
@@ -67,6 +68,7 @@ namespace Core
                 .AsSelf();
             
             builder.RegisterComponentInHierarchy<GameTimerCondition>();
+            builder.RegisterComponentInHierarchy<MinigamesManager>();
             builder.Register<EndGame>(Lifetime.Scoped);
             builder.RegisterInstance(levelData);
         }
