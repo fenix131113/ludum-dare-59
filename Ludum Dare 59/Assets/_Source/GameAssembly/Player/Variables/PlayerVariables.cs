@@ -73,6 +73,8 @@ namespace Player.Variables
         }
 
         public bool IsVariableBlocked(PlayerVariableBlockerType type) =>
-            _blockers.ContainsKey(type) && _blockers[type].Count > 0;
+            (_blockers.ContainsKey(type) && _blockers[type].Count > 0) ||
+            (_blockers.ContainsKey(PlayerVariableBlockerType.ALL) &&
+             _blockers[PlayerVariableBlockerType.ALL].Count > 0);
     }
 }

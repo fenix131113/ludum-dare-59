@@ -2,6 +2,8 @@
 {
     public enum PlayerVariableBlockerType : byte
     {
-        MOVEMENT = 0,
+        ALL = 0,
+        MOVEMENT = 1,
+        SEND_SIGNAL = 2,
     }
 }

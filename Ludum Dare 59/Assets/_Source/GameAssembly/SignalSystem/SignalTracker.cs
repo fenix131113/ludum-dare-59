@@ -1,6 +1,8 @@
 ﻿using System;
 using Player;
+using Player.Data;
 using UnityEngine;
+using Utils.VariablesSystem;
 using VContainer;
 
 namespace SignalSystem
@@ -9,12 +11,13 @@ namespace SignalSystem
     {
         [SerializeField] private float maxTrackDistance;
         [SerializeField] private Transform trackFromTarget;
-        
+
         [Inject] private SignalHolder _signalHolder;
         [Inject] private PlayerInput _playerInput;
-        
+        [Inject] private IVariablesResolver<PlayerVariableBlockerType, Action, Action> _playerVariables;
+
         private float _signalPower;
-        
+
         public event Action<float, float> OnSignalPowerChanged;
 
         private void Start() => Bind();
@@ -23,25 +26,26 @@ namespace SignalSystem
 
         private void Update()
         {
-            if(!_signalHolder.GetCurrentSignal())
+            if (!_signalHolder.GetCurrentSignal())
                 return;
-            
+
             var signal = _signalHolder.GetCurrentSignal();
 
             var minTrackDistance = signal.GetSignalRadius();
             var distance = Vector2.Distance(trackFromTarget.position, signal.transform.position);
             var from = distance > minTrackDistance ? distance : minTrackDistance;
             var result = Mathf.Clamp((from - minTrackDistance) / (maxTrackDistance - minTrackDistance), 0, 1);
-            
+
             if (!Mathf.Approximately(result, _signalPower))
                 SetSignalPower(result);
         }
 
         private void OnSendSignalClicked()
         {
-            if (_signalPower != 0 || !_signalHolder.GetCurrentSignal())
+            if (_signalPower != 0 || !_signalHolder.GetCurrentSignal() ||
+                _playerVariables.IsVariableBlocked(PlayerVariableBlockerType.SEND_SIGNAL))
                 return;
-            
+
             _signalHolder.GetCurrentSignal().SendSignal();
         }
 
@@ -51,7 +55,7 @@ namespace SignalSystem
             _signalPower = power;
             OnSignalPowerChanged?.Invoke(temp, power);
         }
-        
+
         public float GetSignalPower01() => _signalPower;
 
         private void Bind() => _playerInput.OnSendSignalClicked += OnSendSignalClicked;
