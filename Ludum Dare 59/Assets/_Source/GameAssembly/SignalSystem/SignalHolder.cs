@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Utils.Extensions;
@@ -13,7 +14,13 @@ namespace SignalSystem
         private SignalEmitter _currentSignal;
         private Transform _lastSpawnPoint;
 
-        private void OnDestroy() => ExposeSignal(_currentSignal);
+        public event Action OnSignalSpawned;
+
+        private void OnDestroy()
+        {
+            ExposeSignal(_currentSignal);
+            OnSignalSpawned = null;
+        }
 
         private void Start()
         {
@@ -33,9 +40,8 @@ namespace SignalSystem
             if (_currentSignal)
                 DestroySignal(_currentSignal);
 
-            InitializeSignal(Instantiate(emitterPrefab,
-                signalSpawnPoints.Except(new[] { _lastSpawnPoint }).GetRandomElement().position,
-                Quaternion.identity));
+            _lastSpawnPoint = signalSpawnPoints.Except(new[] { _lastSpawnPoint }).GetRandomElement();
+            InitializeSignal(Instantiate(emitterPrefab, _lastSpawnPoint.position, Quaternion.identity));
         }
 
         private void OnCurrentSignalSent()
@@ -49,6 +55,7 @@ namespace SignalSystem
             ExposeSignal(_currentSignal);
             _currentSignal = signal;
             BindSignal(_currentSignal);
+            OnSignalSpawned?.Invoke();
         }
 
         private void DestroySignal(SignalEmitter signal)

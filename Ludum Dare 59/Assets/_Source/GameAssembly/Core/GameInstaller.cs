@@ -1,5 +1,7 @@
 using EffectSystem;
+using EndGameSystem;
 using LevelsSystem;
+using LevelsSystem.Data;
 using Player;
 using Player.Data;
 using Player.Variables;
@@ -15,6 +17,7 @@ namespace Core
     public class GameInstaller : LifetimeScope
     {
         [SerializeField] private PlayerSettingsSO playerSettings;
+        [SerializeField] private LevelDataSO levelData;
 
         private InputSystem_Actions _inputActions;
         private static GameInstaller _instance;
@@ -62,6 +65,10 @@ namespace Core
             builder.Register<TimersHandler>(Lifetime.Scoped)
                 .As<ITickable>()
                 .AsSelf();
+            
+            builder.RegisterComponentInHierarchy<GameTimerCondition>();
+            builder.Register<EndGame>(Lifetime.Scoped);
+            builder.RegisterInstance(levelData);
         }
 
         private void Start()
