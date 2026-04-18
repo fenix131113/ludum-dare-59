@@ -1,9 +1,9 @@
+using LevelsSystem;
 using Player;
 using Player.Data;
 using Player.Variables;
 using UnityEngine;
 using Utils;
-using Utils.VariablesSystem;
 using VContainer;
 using VContainer.Unity;
 
@@ -11,23 +11,35 @@ namespace Core
 {
     public class GameInstaller : LifetimeScope
     {
-        [SerializeField] private PlayerSettingsSO  playerSettings;
-        
+        [SerializeField] private PlayerSettingsSO playerSettings;
+
         private InputSystem_Actions _inputActions;
         private static GameInstaller _instance;
-        
+
         protected override void Configure(IContainerBuilder builder)
         {
+            #region Core
+
+#if UNITY_EDITOR
+            var levelsRecorder = FindFirstObjectByType<LevelsRecorder>();
+            if (levelsRecorder)
+                builder.RegisterComponent(levelsRecorder);
+#else
+            builder.RegisterComponentInHierarchy<LevelsRecorder>();
+#endif
+
+            #endregion
+
             #region Player
 
             _inputActions = new InputSystem_Actions();
             _inputActions.Player.Enable();
-            
+
             builder.RegisterInstance(playerSettings);
             builder.RegisterInstance(_inputActions);
-            
+
             builder.Register<PlayerInput>(Lifetime.Scoped);
-            
+
             builder.Register<PlayerVariables>(Lifetime.Scoped)
                 .AsImplementedInterfaces()
                 .AsSelf();
@@ -40,7 +52,7 @@ namespace Core
             ObjectInjector.Initialize(Container);
             _instance = this;
         }
-        
+
         public static T Resolve<T>()
         {
             return !_instance ? default : _instance.Container.Resolve<T>();
