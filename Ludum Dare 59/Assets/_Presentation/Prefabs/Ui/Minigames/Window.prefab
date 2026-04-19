@@ -226,8 +226,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: GameAssembly::MiniGames.Games.WindowsClose.Window
   closeButton: {fileID: 1051256846342145862}
+  windowRect: {fileID: 7012086736950228729}
   contentImage: {fileID: 4045290381351905640}
-  closeTime: 0.5
+  closeTime: 0.2
   windowContentVariants:
   - {fileID: 0}
 --- !u!1 &6312739960904383422

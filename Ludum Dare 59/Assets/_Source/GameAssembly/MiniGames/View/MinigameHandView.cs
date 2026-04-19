@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using VContainer;
 
 namespace MiniGames.View
@@ -34,7 +35,7 @@ namespace MiniGames.View
             if (!parentRect)
                 return;
 
-            if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(parentRect, Input.mousePosition, GetEventCamera(),
+            if (!RectTransformUtility.ScreenPointToLocalPointInRectangle(parentRect, Mouse.current.position.value, GetEventCamera(),
                     out var pointerPosition))
                 return;
 
