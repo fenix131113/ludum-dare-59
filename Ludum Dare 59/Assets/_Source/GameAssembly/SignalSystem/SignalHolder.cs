@@ -15,6 +15,7 @@ namespace SignalSystem
         private Transform _lastSpawnPoint;
 
         public event Action OnSignalSpawned;
+        public event Action OnSignalSent;
 
         private void OnDestroy()
         {
@@ -48,6 +49,7 @@ namespace SignalSystem
         {
             DestroySignal(_currentSignal);
             SpawnNewSignal();
+            OnSignalSent?.Invoke();
         }
 
         private void InitializeSignal(SignalEmitter signal)

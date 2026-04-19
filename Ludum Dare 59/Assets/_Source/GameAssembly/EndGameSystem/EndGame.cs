@@ -8,7 +8,7 @@ namespace EndGameSystem
 {
     public class EndGame
     {
-        private GameTimerCondition _gameTimers;
+        private GameCondition _game;
         private LevelsRecorder _levelsRecorder;
         private LevelDataSO _levelData;
 
@@ -17,9 +17,9 @@ namespace EndGameSystem
         public event Action<bool> OnGameEnded;
 
         [Inject]
-        private void Construct(IObjectResolver resolver, GameTimerCondition gameTimers, LevelDataSO levelDataSO)
+        private void Construct(IObjectResolver resolver, GameCondition game, LevelDataSO levelDataSO)
         {
-            _gameTimers = gameTimers;
+            _game = game;
             _levelsRecorder = resolver.ResolveOrDefault<LevelsRecorder>();
             _levelData = levelDataSO;
             
@@ -37,20 +37,22 @@ namespace EndGameSystem
             OnGameEnded?.Invoke(isWin);
         }
         
-        private void OnSignalTimerElapsed() => End(false);
+        private void OnSignalElapsed() => End(false);
 
-        private void OnGameTimerElapsed() => End(true);
+        private void OnGameElapsed() => End(false);
+        private void OnSignalsReached() => End(true);
 
         private void Bind()
         {
-            _gameTimers.OnGameTimerElapsed += OnGameTimerElapsed;
-            _gameTimers.OnSignalTimerElapsed += OnSignalTimerElapsed;
+            _game.OnGameTimerElapsed += OnGameElapsed;
+            _game.OnSignalTimerElapsed += OnSignalElapsed;
+            _game.OnSignalsReached += OnSignalsReached;
         }
 
         private void Expose()
         {
-            _gameTimers.OnGameTimerElapsed -= OnGameTimerElapsed;
-            _gameTimers.OnSignalTimerElapsed -= OnSignalTimerElapsed;
+            _game.OnGameTimerElapsed -= OnGameElapsed;
+            _game.OnSignalTimerElapsed -= OnSignalElapsed;
         }
     }
 }

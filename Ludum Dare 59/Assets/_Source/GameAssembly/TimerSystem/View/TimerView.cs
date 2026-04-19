@@ -12,7 +12,7 @@ namespace TimerSystem.View
         [SerializeField] private bool isGameTimer;
         [SerializeField] private float drawInterval;
 
-        [Inject] private GameTimerCondition _gameTimerCondition;
+        [Inject] private GameCondition _gameCondition;
 
         private bool _subscribed;
 
@@ -30,9 +30,9 @@ namespace TimerSystem.View
         private void DrawTimer()
         {
             var timeLeft = isGameTimer
-                ? _gameTimerCondition.GetGameTimer() != null ? _gameTimerCondition.GetGameTimer().TimeLeft : 0f
-                : _gameTimerCondition.GetSignalTimer() != null
-                    ? _gameTimerCondition.GetSignalTimer().TimeLeft
+                ? _gameCondition.GetGameTimer() != null ? _gameCondition.GetGameTimer().TimeLeft : 0f
+                : _gameCondition.GetSignalTimer() != null
+                    ? _gameCondition.GetSignalTimer().TimeLeft
                     : 0f;
             
             timerLabel.text = Mathf.CeilToInt(timeLeft).ToString();

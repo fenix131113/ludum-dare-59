@@ -5,19 +5,23 @@ using VContainer;
 
 namespace TimerSystem
 {
-    public class GameTimerCondition : MonoBehaviour
+    public class GameCondition : MonoBehaviour
     {
         [SerializeField] private float gameTime;
         [SerializeField] private float signalTime;
+        [SerializeField] private int needSignalToWin;
         
         [Inject] private TimersHandler _timers;
         [Inject] private SignalHolder _signalHolder;
 
         private Timer _gameTimer;
         private Timer _signalTimer;
+        private int _currentSignals;
 
         public event Action OnGameTimerElapsed;
         public event Action OnSignalTimerElapsed;
+        public event Action OnCurrentSignalsChanged;
+        public event Action OnSignalsReached;
         
         private void Start()
         {
@@ -69,13 +73,29 @@ namespace TimerSystem
         {
             StartSignalTimer();
         }
+
+        private void OnSignalSent()
+        {
+            _currentSignals++;
+            OnCurrentSignalsChanged?.Invoke();
+            
+            if(_currentSignals < needSignalToWin)
+                return;
+            
+            _gameTimer.Pause();
+            _signalTimer.Pause();
+            OnSignalsReached?.Invoke();
+        }
         
         public Timer GetGameTimer() => _gameTimer;
         public Timer GetSignalTimer() => _signalTimer;
+        public int GetCurrentSignalsCount() => _currentSignals;
+        public int GetNeedSignalsCount() => needSignalToWin;
 
         private void Bind()
         {
             _signalHolder.OnSignalSpawned += OnSignalSpawned;
+            _signalHolder.OnSignalSent += OnSignalSent;
         }
 
         private void BindGameTimer()
@@ -97,6 +117,7 @@ namespace TimerSystem
                 _signalTimer.OnTimeElapsed -= SignalTimerElapsed;
             
             _signalHolder.OnSignalSpawned -= OnSignalSpawned;
+            _signalHolder.OnSignalSent -= OnSignalSent;
         }
     }
 }

@@ -30,7 +30,7 @@ namespace MiniGames.Games.Clicker
         private void Redraw()
         {
             if(clicksCounter)
-                clicksCounter.text = Clicks.ToString();
+                clicksCounter.text = (needClicks - Clicks).ToString();
             
             if(progressFill)
                 progressFill.fillAmount = (float)Clicks / needClicks;

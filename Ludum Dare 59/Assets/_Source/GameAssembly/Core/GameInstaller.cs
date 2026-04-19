@@ -1,3 +1,4 @@
+using System.Linq;
 using EffectSystem;
 using EndGameSystem;
 using LevelsSystem;
@@ -67,10 +68,15 @@ namespace Core
                 .As<ITickable>()
                 .AsSelf();
             
-            builder.RegisterComponentInHierarchy<GameTimerCondition>();
+            builder.RegisterComponentInHierarchy<GameCondition>();
             builder.RegisterComponentInHierarchy<MinigamesManager>();
             builder.Register<EndGame>(Lifetime.Scoped);
             builder.RegisterInstance(levelData);
+            
+            var minigames = FindObjectsByType<BaseMinigame>(
+                FindObjectsInactive.Include,
+                FindObjectsSortMode.None);
+            builder.RegisterInstance(minigames.ToArray());
         }
 
         private void Start()

@@ -4,6 +4,7 @@ using MiniGames.Games.WindowsClose;
 using Player;
 using Player.Data;
 using UnityEngine;
+using Utils.Extensions;
 using Utils.VariablesSystem;
 using VContainer;
 
@@ -17,6 +18,8 @@ namespace SignalSystem
         [Inject] private SignalHolder _signalHolder;
         [Inject] private PlayerInput _playerInput;
         [Inject] private IVariablesResolver<PlayerVariableBlockerType, Action, Action> _playerVariables;
+        [Inject] private MinigamesManager _minigamesManager;
+        [Inject] private BaseMinigame[] _minigames;
 
         private float _signalPower;
 
@@ -48,7 +51,7 @@ namespace SignalSystem
                 _playerVariables.IsVariableBlocked(PlayerVariableBlockerType.SEND_SIGNAL))
                 return;
 
-            FindFirstObjectByType<MinigamesManager>().PlayMinigame(FindFirstObjectByType<WindowsMinigame>(FindObjectsInactive.Include), _signalHolder.GetCurrentSignal());
+            _minigamesManager.PlayMinigame(_minigames.GetRandomElement(), _signalHolder.GetCurrentSignal());
         }
 
         private void SetSignalPower(float power)
