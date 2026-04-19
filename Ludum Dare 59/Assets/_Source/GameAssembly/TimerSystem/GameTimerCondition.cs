@@ -55,6 +55,7 @@ namespace TimerSystem
 
         private void GameTimerElapsed(Timer _)
         {
+            _signalTimer?.Pause();
             OnGameTimerElapsed?.Invoke();
         }
         
