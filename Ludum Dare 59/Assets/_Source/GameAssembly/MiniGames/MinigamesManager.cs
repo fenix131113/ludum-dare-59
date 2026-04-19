@@ -44,7 +44,8 @@ namespace MiniGames
             _currentMinigame.GameEnded -= EndMinigame;
             _currentMinigame = null;
             _minigameBlocker.Dispose();
-            _currentSignalEmitter.SendSignal();
+            _currentSignalEmitter?.SendSignal();
+            _currentSignalEmitter = null;
             OnMinigameStateChanged?.Invoke();
         }
     }

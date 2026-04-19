@@ -1,5 +1,6 @@
 ﻿using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace MiniGames.Games.Clicker
 {
@@ -9,6 +10,7 @@ namespace MiniGames.Games.Clicker
         [SerializeField] private GameObject clickerPanel;
         [SerializeField] private ClickerButton clickerButton;
         [SerializeField] private TMP_Text clicksCounter;
+        [SerializeField] private Image progressFill;
 
         public int Clicks { get; private set; }
 
@@ -27,7 +29,11 @@ namespace MiniGames.Games.Clicker
 
         private void Redraw()
         {
-            clicksCounter.text = Clicks.ToString();
+            if(clicksCounter)
+                clicksCounter.text = Clicks.ToString();
+            
+            if(progressFill)
+                progressFill.fillAmount = (float)Clicks / needClicks;
         }
 
         private void CheckForWinning()
