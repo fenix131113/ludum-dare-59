@@ -12189,17 +12189,21 @@ PrefabInstance:
       propertyPath: 'movePoints.Array.data[3]'
       value: 
       objectReference: {fileID: 1116139741}
+    - target: {fileID: 977365680557780601, guid: f3bc73d8e9bb49e45b7cd1fa962154bc, type: 3}
+      propertyPath: m_SortingLayer
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3927687570889668285, guid: f3bc73d8e9bb49e45b7cd1fa962154bc, type: 3}
       propertyPath: m_Name
       value: Monkey
       objectReference: {fileID: 0}
     - target: {fileID: 6983795668765702348, guid: f3bc73d8e9bb49e45b7cd1fa962154bc, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.42
+      value: 6.89
       objectReference: {fileID: 0}
     - target: {fileID: 6983795668765702348, guid: f3bc73d8e9bb49e45b7cd1fa962154bc, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.5
+      value: -1.08
       objectReference: {fileID: 0}
     - target: {fileID: 6983795668765702348, guid: f3bc73d8e9bb49e45b7cd1fa962154bc, type: 3}
       propertyPath: m_LocalPosition.z

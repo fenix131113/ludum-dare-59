@@ -5,17 +5,18 @@ namespace NpcSystem
 {
     public abstract class BaseNpc : MonoBehaviour
     {
-        [SerializeField] private AIPath aiPath;
-        [SerializeField] private Transform[] movePoints;
-        [SerializeField] private float moveSpeed;
-        [SerializeField] private float pointReachDistance;
-        [SerializeField] private float destinationUpdateDistance = 0.1f;
-        [SerializeField] private bool useCyclePatrol = true;
+        [SerializeField] protected AIPath aiPath;
+        [SerializeField] protected Transform[] movePoints;
+        [SerializeField] protected float moveSpeed;
+        [SerializeField] protected float pointReachDistance;
+        [SerializeField] protected float destinationUpdateDistance = 0.1f;
+        [SerializeField] protected bool constrainInsideGraph = true;
+        [SerializeField] protected bool useCyclePatrol = true;
 
-        private int _movePointIndex;
-        private bool _isMoveForward = true;
-        private Vector2 _lastDestination;
-        private bool _hasDestination;
+        protected int _movePointIndex;
+        protected bool _isMoveForward = true;
+        protected Vector2 _lastDestination;
+        protected bool _hasDestination;
 
         protected float MoveSpeed => moveSpeed;
 
@@ -25,13 +26,14 @@ namespace NpcSystem
                 return;
 
             aiPath.maxSpeed = moveSpeed;
+            aiPath.constrainInsideGraph = constrainInsideGraph;
         }
 
         private void Update() => Tick();
 
         protected abstract void Tick();
 
-        protected bool Patrol()
+        protected virtual bool Patrol()
         {
             if (!TryGetCurrentPoint(out var point))
             {
@@ -47,7 +49,7 @@ namespace NpcSystem
             return true;
         }
 
-        protected void MoveToPoint(Vector2 point, float speedMultiplier = 1f)
+        protected virtual void MoveToPoint(Vector2 point, float speedMultiplier = 1f)
         {
             if (!aiPath)
                 return;
@@ -64,7 +66,7 @@ namespace NpcSystem
             aiPath.SearchPath();
         }
 
-        protected void StopMoving()
+        protected virtual void StopMoving()
         {
             if (!aiPath)
                 return;

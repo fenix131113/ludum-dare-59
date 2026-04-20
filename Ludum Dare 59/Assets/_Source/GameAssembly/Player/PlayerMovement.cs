@@ -81,6 +81,9 @@ namespace Player
                     return false;
 
                 _currentStunEffect = stunEffect;
+                anim.SetFloat(_slipX, _input.ReadMoveVector().x);
+                anim.SetFloat(_slipY, _input.ReadMoveVector().y);
+                anim.SetTrigger(_slip);
                 _playerVariables.RegisterBlocker(_stunBlocker);
                 anim.SetBool(_isStunned, true);
                 return true;

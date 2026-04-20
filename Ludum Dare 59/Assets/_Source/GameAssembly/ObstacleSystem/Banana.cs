@@ -7,6 +7,7 @@ namespace ObstacleSystem
     {
         [SerializeField] private LayerMask triggerLayers;
         [SerializeField] private float speed;
+        [SerializeField] private float rotationSpeed;
         [SerializeField] private float destroyTime;
         [SerializeField] private float triggerZoneMinDistance;
         [SerializeField] private GameObject bananaPeel;
@@ -27,6 +28,7 @@ namespace ObstacleSystem
             }
             
             transform.position += ((Vector3)_targetPos - transform.position).normalized * (Time.deltaTime * speed);
+            transform.Rotate(Vector3.forward,  rotationSpeed * Time.deltaTime);
         }
 
         private void OnTriggerEnter2D(Collider2D other)
