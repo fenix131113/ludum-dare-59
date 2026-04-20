@@ -13,14 +13,10 @@
     <list default="true" id="fb5a9a38-eacc-4c9f-bef0-961ff49b7821" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Ludum Dare 59/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Ludum Dare 59/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Scenes/Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Scenes/Test.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/Core/GameInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/Core/GameInstaller.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/EndGameSystem/EndGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/EndGameSystem/EndGame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/MiniGames/Games/Clicker/ClickerMinigame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/MiniGames/Games/Clicker/ClickerMinigame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/SignalSystem/SignalHolder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/SignalSystem/SignalHolder.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/EndGameSystem/View/EndGameView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/EndGameSystem/View/EndGameView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/MiniGames/Games/DoorPassword/DoorPasswordMinigame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/MiniGames/Games/DoorPassword/DoorPasswordMinigame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/SignalSystem/SignalEmitter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/SignalSystem/SignalEmitter.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/SignalSystem/SignalTracker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/SignalSystem/SignalTracker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/SignalSystem/View/SignalPowerView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/SignalSystem/View/SignalPowerView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/TimerSystem/GameTimerCondition.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/TimerSystem/GameCondition.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/TimerSystem/GameTimerCondition.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/TimerSystem/GameCondition.cs.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/TimerSystem/View/TimerView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/TimerSystem/View/TimerView.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,6 +36,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/c80b42b80a6b4f929e8a04e3926765411f5a00/dd/45f9a4d1/Quaternion.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/3ea01e77be99618395f448b16bd7cc2bd4248bd9e5d8474964b2d97f39c5d74/System.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/d44b17e136d09081da1e8fd0e8c83fde60e11818b9f2442d7ed8cb733fae895e/System.Collections.Generic.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/ComicsSystem/Comics.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/Core/MenuInstaller.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/EffectSystem/EffectBank.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/EffectSystem/Effects/StunEffect.cs" root0="FORCE_HIGHLIGHTING" />
@@ -50,6 +47,8 @@
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/Menu/MenuLevelsView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/MiniGames/BaseMinigame.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/MiniGames/Games/Clicker/ClickerButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/MiniGames/Games/FingerPrintGame/FingerButton.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/MiniGames/Games/FingerPrintGame/FingerPrintGame.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/MiniGames/Games/WindowsClose/Window.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/MiniGames/Games/WindowsClose/WindowsMinigame.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/MiniGames/HoldItem.cs" root0="FORCE_HIGHLIGHTING" />
@@ -67,7 +66,6 @@
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/SignalSystem/SignalTracker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/SignalSystem/View/SignalPowerView.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/SignalSystem/View/SignalsGoalView.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/TimerSystem/GameTimerCondition.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/TimerSystem/Timer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/TimerSystem/TimersHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/TimerSystem/View/TimerView.cs" root0="FORCE_HIGHLIGHTING" />
@@ -163,7 +161,7 @@
       <workItem from="1776483829141" duration="2000" />
       <workItem from="1776499712605" duration="19805000" />
       <workItem from="1776521490477" duration="23006000" />
-      <workItem from="1776579318720" duration="31664000" />
+      <workItem from="1776579318720" duration="44310000" />
     </task>
     <servers />
   </component>

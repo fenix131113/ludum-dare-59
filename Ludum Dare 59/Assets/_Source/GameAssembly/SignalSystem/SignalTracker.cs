@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Linq;
 using MiniGames;
-using MiniGames.Games.WindowsClose;
 using Player;
 using Player.Data;
 using UnityEngine;
@@ -22,6 +22,7 @@ namespace SignalSystem
         [Inject] private BaseMinigame[] _minigames;
 
         private float _signalPower;
+        private BaseMinigame _lastMinigame;
 
         public event Action<float, float> OnSignalPowerChanged;
 
@@ -51,7 +52,8 @@ namespace SignalSystem
                 _playerVariables.IsVariableBlocked(PlayerVariableBlockerType.SEND_SIGNAL))
                 return;
 
-            _minigamesManager.PlayMinigame(_minigames.GetRandomElement(), _signalHolder.GetCurrentSignal());
+            _lastMinigame = _minigames.Except(new[] { _lastMinigame }).GetRandomElement();
+            _minigamesManager.PlayMinigame(_lastMinigame, _signalHolder.GetCurrentSignal());
         }
 
         private void SetSignalPower(float power)

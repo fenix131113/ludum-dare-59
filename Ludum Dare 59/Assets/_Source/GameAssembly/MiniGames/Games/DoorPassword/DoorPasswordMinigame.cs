@@ -19,7 +19,7 @@ namespace MiniGames.Games.DoorPassword
         [SerializeField] private int passwordLength = 4;
 
         private readonly List<int> _password = new();
-        private readonly List<int> _currentInput = new();
+                                                                 private readonly List<int> _currentInput = new();
         private bool _isBind;
 
         private void Start() => Bind();

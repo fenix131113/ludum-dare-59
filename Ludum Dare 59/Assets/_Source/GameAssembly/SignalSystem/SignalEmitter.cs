@@ -9,7 +9,6 @@ namespace SignalSystem
 {
     public class SignalEmitter : MonoBehaviour
     {
-        [SerializeField] private LayerMask triggerLayers;
         [SerializeField] private CircleCollider2D signalCollider;
         [SerializeField] private float signalRadius;
 

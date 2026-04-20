@@ -1,4 +1,5 @@
 ﻿using System;
+using ComicsSystem;
 using Player.Data;
 using Player.Variables;
 using TMPro;
@@ -16,6 +17,7 @@ namespace EndGameSystem.View
         [SerializeField] private GameObject endPanel;
         [SerializeField] private Button menuButton;
         [SerializeField] private TMP_Text resultLabel;
+        [SerializeField] private Comics endComics;
         [SerializeField] private string winCaption = "You win!";
         [SerializeField] private string looseCaption = "You loose!";
 
@@ -48,11 +50,13 @@ namespace EndGameSystem.View
         private void Win()
         {
             resultLabel.text = winCaption;
+            endComics.gameObject.SetActive(false);
         }
 
         private void Loose()
         {
             resultLabel.text = looseCaption;
+            endComics.gameObject.SetActive(true);
         }
         
         private void Bind()
