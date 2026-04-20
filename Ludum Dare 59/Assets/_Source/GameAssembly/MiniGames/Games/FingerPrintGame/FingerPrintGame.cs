@@ -71,6 +71,7 @@ namespace MiniGames.Games.FingerPrintGame
 
         private void OnFingerButtonClicked(FingerButton button)
         {
+            _currentAnswerButton?.SetInteractable(true);
             _currentAnswerButton = button;
             _currentAnswerButton.SetInteractable(false);
             confirmButton.interactable = true;

@@ -11,13 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb5a9a38-eacc-4c9f-bef0-961ff49b7821" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Ludum Dare 59/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Ludum Dare 59/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Scenes/Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Scenes/Test.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/EndGameSystem/View/EndGameView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/EndGameSystem/View/EndGameView.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/MiniGames/Games/DoorPassword/DoorPasswordMinigame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/MiniGames/Games/DoorPassword/DoorPasswordMinigame.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/SignalSystem/SignalEmitter.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/SignalSystem/SignalEmitter.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/SignalSystem/SignalTracker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/SignalSystem/SignalTracker.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/TimerSystem/View/TimerView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/TimerSystem/View/TimerView.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +155,7 @@
       <workItem from="1776483829141" duration="2000" />
       <workItem from="1776499712605" duration="19805000" />
       <workItem from="1776521490477" duration="23006000" />
-      <workItem from="1776579318720" duration="44310000" />
+      <workItem from="1776579318720" duration="44891000" />
     </task>
     <servers />
   </component>
