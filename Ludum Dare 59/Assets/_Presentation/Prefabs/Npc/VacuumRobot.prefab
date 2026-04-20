@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 1820324985879873531}
   - component: {fileID: 2594694454770447185}
   - component: {fileID: 8549823757276525558}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: VacuumRobot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -96,7 +96,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &6758100793049080255
 MonoBehaviour:
   m_ObjectHideFlags: 0

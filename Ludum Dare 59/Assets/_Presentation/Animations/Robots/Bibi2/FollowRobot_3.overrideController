@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: FollowRobot_3
+  m_Controller: {fileID: 9100000, guid: 9fe3029613b4fd44a924a95155558707, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 878b916b7fa1cfa4799621ec12ff9576, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 4a8b1c81479dda0459342ae3b25ea4e7, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: bc7ff927ff1f69c4c8380cb07b41dcac, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: ecd765398280d88488bb5c9d847d5d42, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 1c365e67714a3fe41900ab957c32dc23, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 723085a35eb598145aa3f383f2603ae5, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 3a15450578e9d72498233ec36682384e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: d61f945accc036744af2715b908d9ba5, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 7f9a8cb6f6ae3e845a41335161735bca, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c170a108b534e14498f63cd678af70a5, type: 2}

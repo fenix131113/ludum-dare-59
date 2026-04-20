@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3927687570889668285
+--- !u!1 &5980249444288111376
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,42 +8,44 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6983795668765702348}
-  - component: {fileID: 977365680557780601}
-  - component: {fileID: 5076769360802068559}
-  - component: {fileID: 8847705257269352971}
-  - component: {fileID: 901743729512579387}
-  - component: {fileID: 717907520651914786}
-  - component: {fileID: 3082302407723471816}
+  - component: {fileID: 6926685995745376094}
+  - component: {fileID: 7288545992016773089}
+  - component: {fileID: 8918522573171578022}
+  - component: {fileID: 8227430123943600904}
+  - component: {fileID: 4337264145021565190}
+  - component: {fileID: 729172817373458808}
+  - component: {fileID: 6023885873167971189}
+  - component: {fileID: 6565673327816916656}
+  - component: {fileID: 8460421384565244335}
   m_Layer: 6
-  m_Name: Monkey
+  m_Name: FollowRobot_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6983795668765702348
+--- !u!4 &6926685995745376094
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3927687570889668285}
+  m_GameObject: {fileID: 5980249444288111376}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.42, y: -2.5, z: 0}
+  m_LocalPosition: {x: 6.77, y: -2.32, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &977365680557780601
+--- !u!212 &7288545992016773089
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3927687570889668285}
+  m_GameObject: {fileID: 5980249444288111376}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -84,7 +86,7 @@ SpriteRenderer:
   m_SortingLayerID: -1553219853
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4672263388654706270, guid: f0a40b7059cebf74885a87d04b5ef155, type: 3}
+  m_Sprite: {fileID: -3167438639431221365, guid: 99009ec5060a68949854f672a9df2158, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -95,13 +97,13 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
---- !u!114 &5076769360802068559
+--- !u!114 &8918522573171578022
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3927687570889668285}
+  m_GameObject: {fileID: 5980249444288111376}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 373b52eb9bf8c40f785bb6947a1aee66, type: 3}
@@ -123,13 +125,13 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &8847705257269352971
+--- !u!114 &8227430123943600904
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3927687570889668285}
+  m_GameObject: {fileID: 5980249444288111376}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f6eb1402c17e84a9282a7f0f62eb584f, type: 3}
@@ -139,7 +141,7 @@ MonoBehaviour:
   radius: 0.5
   height: 1
   canMove: 1
-  maxSpeed: 7
+  maxSpeed: 4
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
@@ -165,22 +167,22 @@ MonoBehaviour:
   slowWhenNotFacingTarget: 0
   whenCloseToDestination: 0
   constrainInsideGraph: 0
---- !u!114 &901743729512579387
+--- !u!114 &4337264145021565190
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3927687570889668285}
+  m_GameObject: {fileID: 5980249444288111376}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba3d3fca092b4a87be6f6487eb8f9545, type: 3}
+  m_Script: {fileID: 11500000, guid: 87f9881e0f6a43709ce00752dd091efd, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: GameAssembly::NpcSystem.MonkeyNpc
-  aiPath: {fileID: 8847705257269352971}
+  m_EditorClassIdentifier: GameAssembly::NpcSystem.FollowRobotNpc
+  aiPath: {fileID: 8227430123943600904}
   movePoints: []
-  moveSpeed: 4
-  pointReachDistance: 0.25
+  moveSpeed: 3
+  pointReachDistance: 0.1
   destinationUpdateDistance: 0.1
   constrainInsideGraph: 1
   useCyclePatrol: 1
@@ -191,43 +193,23 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1
   viewDistance: 10
-  keepDistance: 6
-  retreatDistance: 4
-  safeDistance: 6
-  searchPointReachDistance: 3
+  searchPointReachDistance: 15
   searchTimeout: 2
-  retreatPointReachDistance: 0.1
-  lostSightDelay: 0.15
-  retreatSpeedMultiplier: 1.3
-  throwCooldown: 0.3
-  throwStopDuration: 1
-  anim: {fileID: 3082302407723471816}
---- !u!114 &717907520651914786
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3927687570889668285}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: feb4c2b526a840d8bb789bbb7e183eeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: GameAssembly::NpcSystem.BananaThrower
-  monkey: {fileID: 901743729512579387}
-  bananaPrefab: {fileID: 653425057997897233, guid: c6bc208ca3705dc458f799da67d0c049, type: 3}
-  throwPoint: {fileID: 6983795668765702348}
---- !u!95 &3082302407723471816
+  chaseSpeedMultiplier: 1.15
+  stopDuration: 4
+  triggerCollider: {fileID: 6023885873167971189}
+  anim: {fileID: 729172817373458808}
+--- !u!95 &729172817373458808
 Animator:
   serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3927687570889668285}
+  m_GameObject: {fileID: 5980249444288111376}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 46984b1697622ea4cbb7d01cfd02e6a2, type: 2}
+  m_Controller: {fileID: 9100000, guid: 0a2eab8d9f72fdc4c979a7c4c0a4648d, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -239,3 +221,74 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!58 &6023885873167971189
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5980249444288111376}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_Radius: 0.5
+--- !u!114 &6565673327816916656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5980249444288111376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d41570a36caa484b8be02eb2655223ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameAssembly::ObstacleSystem.StunZone
+  triggerLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  stunDuration: 3
+  stunCooldown: 4
+--- !u!114 &8460421384565244335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5980249444288111376}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d55908f4ef851e4ea4366d946032eec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameAssembly::ObstacleSystem.SlipZone
+  triggerLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  slipDuration: 1.5
+  slipDeceleration: 3
+  slipCooldown: 4
