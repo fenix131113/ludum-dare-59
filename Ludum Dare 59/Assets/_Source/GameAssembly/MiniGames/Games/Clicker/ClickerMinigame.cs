@@ -1,6 +1,10 @@
-﻿using TMPro;
+﻿using Coffee.UIExtensions;
+using DG.Tweening;
+using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using Utils;
 
 namespace MiniGames.Games.Clicker
 {
@@ -11,17 +15,38 @@ namespace MiniGames.Games.Clicker
         [SerializeField] private ClickerButton clickerButton;
         [SerializeField] private TMP_Text clicksCounter;
         [SerializeField] private Image progressFill;
+        [SerializeField] private TempParticleSource filesParticles;
+        [SerializeField] private UIParticle particlesParent;
+        [SerializeField] private float popSize;
+        [SerializeField] private float popTime;
+        [SerializeField] private Ease popEase;
 
         public int Clicks { get; private set; }
 
         private bool _isBind;
+        private Tween _popTween;
+        private Vector3 _clickerStartScale;
 
-        private void Start() => Bind();
+        private void Start()
+        {
+            Bind();
+            _clickerStartScale = clickerButton.transform.localScale;
+        }
 
         private void OnDestroy() => Expose();
 
         private void OnClickerClicked()
         {
+            _popTween?.Kill();
+            _popTween = clickerButton.transform.DOScale(_clickerStartScale * popSize, popTime / 2f)
+                .SetEase(popEase).OnComplete(() =>
+                    clickerButton.transform.DOScale(_clickerStartScale, popTime / 2f).SetEase(popEase));
+
+            Instantiate(filesParticles, Camera.main!.ScreenToWorldPoint(Mouse.current.position.ReadValue()),
+                filesParticles.transform.rotation, particlesParent.transform);
+            
+            particlesParent.RefreshParticles();
+
             Clicks++;
             Redraw();
             CheckForWinning();
@@ -29,10 +54,10 @@ namespace MiniGames.Games.Clicker
 
         private void Redraw()
         {
-            if(clicksCounter)
+            if (clicksCounter)
                 clicksCounter.text = (needClicks - Clicks).ToString();
-            
-            if(progressFill)
+
+            if (progressFill)
                 progressFill.fillAmount = (float)Clicks / needClicks;
         }
 
