@@ -297,6 +297,9 @@ MonoBehaviour:
   timerLabel: {fileID: 20211689}
   isGameTimer: 1
   drawInterval: 0.025
+  popTime: 0.15
+  popSize: -0.1
+  popEase: 0
 --- !u!114 &20211689
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3428,7 +3431,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: GameAssembly::TimerSystem.GameTimerCondition
   gameTime: 180
   signalTime: 15
-  needSignalToWin: 1
+  needSignalToWin: 4
 --- !u!114 &635831195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9617,6 +9620,9 @@ MonoBehaviour:
   timerLabel: {fileID: 1767155293}
   isGameTimer: 0
   drawInterval: 0.1
+  popTime: 0.15
+  popSize: -0.1
+  popEase: 0
 --- !u!114 &1767155293
 MonoBehaviour:
   m_ObjectHideFlags: 0
