@@ -15,12 +15,12 @@ namespace MiniGames.View
         [SerializeField] private float fadeAmount;
         
         [Inject] private MinigamesManager _minigamesManager;
-        private Vector3 _startPos;
+        private Vector2 _startAnchoredPos;
 
         private void Start()
         {
             Bind();
-            _startPos = gamePanel.position;
+            _startAnchoredPos = gamePanel.anchoredPosition;
         }
 
         private void OnDestroy() => Expose();
@@ -39,9 +39,9 @@ namespace MiniGames.View
             DOTween.Kill(gamePanel);
             backgroundBlocker.gameObject.SetActive(true);
             backgroundBlocker.DOFade(fadeAmount, onOffTime);
-            gamePanel.anchoredPosition = new Vector2(0, downY);
+            gamePanel.anchoredPosition = new Vector2(_startAnchoredPos.x, downY);
             gamePanel.gameObject.SetActive(true);
-            gamePanel.DOMoveY(_startPos.y, onOffTime).SetEase(onOffEase);
+            gamePanel.DOAnchorPosY(_startAnchoredPos.y, onOffTime).SetEase(onOffEase);
         }
 
         private void HideGameZone()
@@ -49,7 +49,7 @@ namespace MiniGames.View
             DOTween.Kill(backgroundBlocker);
             DOTween.Kill(gamePanel);
             backgroundBlocker.DOFade(0f, onOffTime);
-            gamePanel.DOMoveY(downY, onOffTime).SetEase(onOffEase).OnComplete(() =>
+            gamePanel.DOAnchorPosY(downY, onOffTime).SetEase(onOffEase).OnComplete(() =>
             {
                 gamePanel.gameObject.SetActive(false);
                 backgroundBlocker.gameObject.SetActive(false);

@@ -42,6 +42,8 @@ namespace Core
             builder.RegisterInstance(playerSettings);
             builder.RegisterInstance(_inputActions);
 
+            builder.RegisterComponentInHierarchy<PlayerMovement>();
+
             builder.Register<PlayerInput>(Lifetime.Scoped);
 
             builder.Register<PlayerVariables>(Lifetime.Scoped)

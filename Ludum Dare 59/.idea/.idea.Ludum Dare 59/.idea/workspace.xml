@@ -12,8 +12,9 @@
   <component name="ChangeListManager">
     <list default="true" id="fb5a9a38-eacc-4c9f-bef0-961ff49b7821" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Ludum Dare 59/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Ludum Dare 59/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/ObstacleSystem/StunZone.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/ObstacleSystem/StunZone.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/Player/PlayerMovement.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/Player/PlayerMovement.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Scenes/Test.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Scenes/Test.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/Core/GameInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/Core/GameInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/MiniGames/View/GeneralMinigamesView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/MiniGames/View/GeneralMinigamesView.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +163,7 @@
       <workItem from="1776483829141" duration="2000" />
       <workItem from="1776499712605" duration="19805000" />
       <workItem from="1776521490477" duration="23006000" />
-      <workItem from="1776579318720" duration="58961000" />
+      <workItem from="1776579318720" duration="66130000" />
     </task>
     <servers />
   </component>
