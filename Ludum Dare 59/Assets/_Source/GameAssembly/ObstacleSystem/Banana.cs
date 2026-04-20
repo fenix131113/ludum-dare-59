@@ -1,4 +1,3 @@
-﻿using System;
 using System.Collections;
 using EffectSystem;
 using EffectSystem.Effects;
@@ -8,17 +7,16 @@ using VContainer;
 
 namespace ObstacleSystem
 {
-    public class StunZone : MonoBehaviour
+    public class Banana : MonoBehaviour
     {
         [SerializeField] private LayerMask triggerLayers;
-        [SerializeField] private float stunDuration;
-        [SerializeField] private float stunCooldown;
+        [SerializeField] private float slipDuration;
+        [SerializeField] private float slipDeceleration;
+        [SerializeField] private float slipCooldown;
 
         [Inject] private EffectBank _effectBank;
 
         private bool _isCooldown;
-
-        public event Action OnStun;
 
         private void Start()
         {
@@ -31,23 +29,22 @@ namespace ObstacleSystem
                 !other.gameObject.TryGetComponent(out IEffectAddicted target))
                 return;
             
-            Stun(target);
+            Slip(target);
         }
 
-        private void Stun(IEffectAddicted target)
+        private void Slip(IEffectAddicted target)
         {
             if(_isCooldown)
                 return;
             
-            _effectBank.RegisterEffect(new StunEffect(target, stunDuration));
-            StartCoroutine(StunCoroutine());
+            _effectBank.RegisterEffect(new SlipEffect(target, slipDuration, slipDeceleration));
+            StartCoroutine(SlipCoroutine());
             _isCooldown = true;
-            OnStun?.Invoke();
         }
 
-        private IEnumerator StunCoroutine()
+        private IEnumerator SlipCoroutine()
         {
-            yield return new WaitForSeconds(stunCooldown);
+            yield return new WaitForSeconds(slipCooldown);
             
             _isCooldown = false;
         }

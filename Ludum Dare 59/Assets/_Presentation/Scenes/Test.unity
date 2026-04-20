@@ -4962,6 +4962,7 @@ GameObject:
   - component: {fileID: 919415253}
   - component: {fileID: 919415252}
   - component: {fileID: 919415251}
+  - component: {fileID: 919415255}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -5095,6 +5096,24 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &919415255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919415250}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d55908f4ef851e4ea4366d946032eec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: GameAssembly::ObstacleSystem.Banana
+  triggerLayers:
+    serializedVersion: 2
+    m_Bits: 8
+  slipDuration: 1.5
+  slipDeceleration: 3
+  slipCooldown: 5
 --- !u!1 &931135681
 GameObject:
   m_ObjectHideFlags: 0
