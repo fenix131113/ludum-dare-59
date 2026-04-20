@@ -1,52 +1,52 @@
-using System.Collections;
-using EffectSystem;
-using EffectSystem.Effects;
-using UnityEngine;
+﻿using UnityEngine;
 using Utils;
-using VContainer;
 
 namespace ObstacleSystem
 {
     public class Banana : MonoBehaviour
     {
         [SerializeField] private LayerMask triggerLayers;
-        [SerializeField] private float slipDuration;
-        [SerializeField] private float slipDeceleration;
-        [SerializeField] private float slipCooldown;
+        [SerializeField] private float speed;
+        [SerializeField] private float destroyTime;
+        [SerializeField] private float triggerZoneMinDistance;
+        [SerializeField] private GameObject bananaPeel;
 
-        [Inject] private EffectBank _effectBank;
-
-        private bool _isCooldown;
+        private Vector2 _targetPos;
 
         private void Start()
         {
-            ObjectInjector.InjectObject(this);
+            Destroy(gameObject, destroyTime);
+        }
+
+        private void Update()
+        {
+            if(Vector2.Distance(transform.position, _targetPos) <= triggerZoneMinDistance)
+            {
+                DropBanana();
+                return;
+            }
+            
+            transform.position += ((Vector3)_targetPos - transform.position).normalized * (Time.deltaTime * speed);
         }
 
         private void OnTriggerEnter2D(Collider2D other)
         {
-            if (!enabled || !LayerService.CheckLayersEquality(other.gameObject.layer, triggerLayers) ||
-                !other.gameObject.TryGetComponent(out IEffectAddicted target))
+            if (!LayerService.CheckLayersEquality(other.gameObject.layer, triggerLayers))
                 return;
-            
-            Slip(target);
+
+            DropBanana();
         }
 
-        private void Slip(IEffectAddicted target)
+        public void Initialize(Vector2 targetPos)
         {
-            if(_isCooldown)
-                return;
-            
-            _effectBank.RegisterEffect(new SlipEffect(target, slipDuration, slipDeceleration));
-            StartCoroutine(SlipCoroutine());
-            _isCooldown = true;
+            _targetPos = targetPos;
         }
 
-        private IEnumerator SlipCoroutine()
+        private void DropBanana()
         {
-            yield return new WaitForSeconds(slipCooldown);
-            
-            _isCooldown = false;
+            Instantiate(bananaPeel, transform.position, Quaternion.identity);
+
+            Destroy(gameObject);
         }
     }
 }

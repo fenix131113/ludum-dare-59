@@ -20,11 +20,13 @@ namespace NpcSystem
         [SerializeField] private float lostSightDelay = 0.2f;
         [SerializeField] private float retreatSpeedMultiplier = 1.4f;
         [SerializeField] private float throwCooldown;
+        [SerializeField] private float throwStopDuration = 1f;
 
         [Inject] private PlayerMovement _playerTarget;
         
         private MonkeyState _state;
         private float _throwCooldownLeft;
+        private float _throwStopTimeLeft;
         private float _lostSightTime;
         private Vector2 _lastSeenPlayerPoint;
         private Vector2 _retreatPoint;
@@ -40,6 +42,9 @@ namespace NpcSystem
         protected override void Tick()
         {
             TickThrowCooldown();
+
+            if (TickThrowStop())
+                return;
 
             if (TrySeePlayer(out var playerPoint))
             {
@@ -174,6 +179,8 @@ namespace NpcSystem
                 return;
 
             _throwCooldownLeft = throwCooldown;
+            _throwStopTimeLeft = throwStopDuration;
+            StopMoving();
             OnBananaThrowRequested?.Invoke(playerPoint);
         }
 
@@ -183,6 +190,16 @@ namespace NpcSystem
                 return;
 
             _throwCooldownLeft -= Time.deltaTime;
+        }
+
+        private bool TickThrowStop()
+        {
+            if (_throwStopTimeLeft <= 0)
+                return false;
+
+            _throwStopTimeLeft -= Time.deltaTime;
+            StopMoving();
+            return true;
         }
 
         private enum MonkeyState : byte

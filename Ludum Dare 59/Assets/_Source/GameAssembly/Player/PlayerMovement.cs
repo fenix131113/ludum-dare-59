@@ -11,7 +11,17 @@ namespace Player
 {
     public class PlayerMovement : MonoBehaviour, IEffectAddicted
     {
+        private static readonly int _isMoving = Animator.StringToHash("IsMoving");
+        private static readonly int _moveY = Animator.StringToHash("MoveY");
+        private static readonly int _moveX = Animator.StringToHash("MoveX");
+        private static readonly int _slip = Animator.StringToHash("Slip");
+        private static readonly int _slipY = Animator.StringToHash("SlipY");
+        private static readonly int _slipX = Animator.StringToHash("SlipX");
+        private static readonly int _isSlipping = Animator.StringToHash("IsSlipping");
+        private static readonly int _isStunned = Animator.StringToHash("IsStunned");
+
         [SerializeField] private Rigidbody2D rb;
+        [SerializeField] private Animator anim;
 
         [Inject] private PlayerInput _input;
         [Inject] private PlayerSettingsSO _playerSettings;
@@ -23,11 +33,21 @@ namespace Player
         private StunEffect _currentStunEffect;
         private SlipEffect _currentSlipEffect;
         private Vector2 _slipVelocity;
-        
+        private bool _slipAnimTriggered;
+
         private void Update()
         {
             if (_currentSlipEffect is { IsActive: true })
             {
+                anim.SetBool(_isSlipping, true);
+                if (!_slipAnimTriggered)
+                {
+                    _slipAnimTriggered = true;
+                    anim.SetFloat(_slipX, _input.ReadMoveVector().x);
+                    anim.SetFloat(_slipY, _input.ReadMoveVector().y);
+                    anim.SetTrigger(_slip);
+                }
+
                 _slipVelocity = Vector2.MoveTowards(
                     _slipVelocity,
                     Vector2.zero,
@@ -36,13 +56,21 @@ namespace Player
                 return;
             }
 
+            anim.SetBool(_isSlipping, false);
+            _slipAnimTriggered = false;
+
             if (_playerVariables.IsVariableBlocked(PlayerVariableBlockerType.MOVEMENT))
             {
                 rb.linearVelocity = Vector2.zero;
+                anim.SetBool(_isMoving, false);
                 return;
             }
 
             rb.linearVelocity = _input.ReadMoveVector() * _playerSettings.MoveSpeed;
+            anim.SetBool(_isMoving, _input.ReadMoveVector().magnitude > 0f);
+
+            anim.SetFloat(_moveX, _input.ReadMoveVector().x);
+            anim.SetFloat(_moveY, _input.ReadMoveVector().y);
         }
 
         public bool ApplyEffect(BaseEffect effect)
@@ -51,9 +79,10 @@ namespace Player
             {
                 if (_currentStunEffect is { IsActive: true })
                     return false;
-                
+
                 _currentStunEffect = stunEffect;
                 _playerVariables.RegisterBlocker(_stunBlocker);
+                anim.SetBool(_isStunned, true);
                 return true;
             }
 
@@ -76,6 +105,7 @@ namespace Player
             {
                 _stunBlocker.Dispose();
                 _currentStunEffect = null;
+                anim.SetBool(_isStunned, false);
             }
 
             if (effect is SlipEffect slipEffect && _currentSlipEffect == slipEffect)
