@@ -17,6 +17,9 @@ namespace Menu
         private void OnDestroy() => Expose();
 
         private void OnButtonClicked() => _sceneLoader.LoadScene(levelIndex);
+        
+        public int GetLevelIndex() => levelIndex;
+        public void SetInteractable(bool interactable) => button.interactable =  interactable;
 
         private void Bind() => button.onClick.AddListener(OnButtonClicked);
 

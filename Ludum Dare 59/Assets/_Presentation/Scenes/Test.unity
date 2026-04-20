@@ -3395,7 +3395,7 @@ MonoBehaviour:
   autoInjectGameObjects:
   - {fileID: 635831189}
   playerSettings: {fileID: 11400000, guid: 3c84411c74aaa434384c4069ceca1b6b, type: 2}
-  levelData: {fileID: 11400000, guid: ea8e5325ed02e8f42b6325c6357b5b25, type: 2}
+  levelData: {fileID: 11400000, guid: 8a29d8187652b8e47844d2265c9085aa, type: 2}
 --- !u!114 &635831192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3428,7 +3428,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: GameAssembly::TimerSystem.GameTimerCondition
   gameTime: 180
   signalTime: 15
-  needSignalToWin: 52
+  needSignalToWin: 1
 --- !u!114 &635831195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3613,7 +3613,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -162, y: -54.689575}
+  m_AnchoredPosition: {x: -161.70001, y: -54.299988}
   m_SizeDelta: {x: 291.5879, y: 77.5736}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &656647055
@@ -3670,8 +3670,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
-  m_HorizontalAlignment: 4
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -3728,6 +3728,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: GameAssembly::SignalSystem.View.SignalsGoalView
   signalsLabel: {fileID: 656647055}
+  popTime: 0.3
+  popSize: 0.3
+  popEase: 9
 --- !u!224 &667936428 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1745038212156701046, guid: 51c15abc6e196dc4f985a99cb318c0eb, type: 3}

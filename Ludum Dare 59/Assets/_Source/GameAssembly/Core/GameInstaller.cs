@@ -28,13 +28,9 @@ namespace Core
         {
             #region Core
 
-#if UNITY_EDITOR
             var levelsRecorder = FindFirstObjectByType<LevelsRecorder>();
             if (levelsRecorder)
                 builder.RegisterComponent(levelsRecorder);
-#else
-            builder.RegisterComponentInHierarchy<LevelsRecorder>();
-#endif
 
             #endregion
 

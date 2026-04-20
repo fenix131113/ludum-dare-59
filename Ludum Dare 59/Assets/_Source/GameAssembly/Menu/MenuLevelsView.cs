@@ -1,14 +1,13 @@
 ﻿using System.Collections.Generic;
 using LevelsSystem;
 using UnityEngine;
-using UnityEngine.UI;
 using VContainer;
 
 namespace Menu
 {
     public class MenuLevelsView : MonoBehaviour
     {
-        [SerializeField] private List<Button> levelsButtons = new();
+        [SerializeField] private List<LevelButton> levelsButtons = new();
 
         private LevelsRecorder _levelsRecorder;
 
@@ -31,7 +30,7 @@ namespace Menu
             for (var index = 1; index < levelsButtons.Count; index++)
             {
                 var button = levelsButtons[index];
-                button.interactable = _levelsRecorder.IsLevelCompleted(index - 1);
+                button.SetInteractable(_levelsRecorder.IsLevelCompleted(levelsButtons[index - 1].GetLevelIndex()));
             }
         }
     }
