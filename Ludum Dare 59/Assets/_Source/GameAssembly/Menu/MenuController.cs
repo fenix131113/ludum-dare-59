@@ -10,6 +10,7 @@ namespace Menu
         [SerializeField] private Button settingButton;
         [SerializeField] private Button backFromSettingButton;
         [SerializeField] private Button backFromPlayButton;
+        [SerializeField] private Button exitButton;
         [SerializeField] private RectTransform mainPanel;
         [SerializeField] private RectTransform playPanel;
         [SerializeField] private RectTransform settingsPanel;
@@ -31,6 +32,8 @@ namespace Menu
             _startPlayPanelPos = playPanel.anchoredPosition;
             _startSettingsPanelPos = settingsPanel.anchoredPosition;
             _startMainPanelPos =  mainPanel.anchoredPosition;
+            
+            exitButton.gameObject.SetActive(Application.platform == RuntimePlatform.WindowsPlayer);
         }
 
         private void OnDestroy()
@@ -77,9 +80,12 @@ namespace Menu
             mainPanel.DOAnchorPos(_startMainPanelPos, moveTime).SetEase(moveEase)
                 .OnComplete(() => touchBlocker.SetActive(false));
         }
+        
+        private void OnExitButtonClicked() => Application.Quit();
 
         private void Bind()
         {
+            exitButton.onClick.AddListener(OnExitButtonClicked);
             playButton.onClick.AddListener(OnPlayButtonClicked);
             settingButton.onClick.AddListener(OnSettingsButtonClicked);
             backFromPlayButton.onClick.AddListener(OnBackFromPlayButtonClicked);
@@ -88,6 +94,7 @@ namespace Menu
 
         private void Expose()
         {
+            exitButton.onClick.RemoveAllListeners();
             playButton.onClick.RemoveAllListeners();
             settingButton.onClick.RemoveAllListeners();
             backFromPlayButton.onClick.RemoveAllListeners();

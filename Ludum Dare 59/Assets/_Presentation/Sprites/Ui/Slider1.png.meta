@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fd124e461ea8f4e4ca7873b02a0935e4
+guid: ce16bdc9122bf034182e11dca7074c6c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3715851365911302985
-    second: Door_Side_Open_0
+      213: 3619942301399660217
+    second: Slider1_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,10 +49,10 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.5, y: -0}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 1, y: 1, z: 1, w: 1}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Door_Side_Open_0
+      name: Slider1_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 16
-        height: 53
+        width: 52
+        height: 4
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7bce4b0ced4ae6cc0800000000000000
-      internalID: -3715851365911302985
+      spriteID: 9b63656085e9c3230800000000000000
+      internalID: 3619942301399660217
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Door_Side_Open_0: -3715851365911302985
+      Slider1_0: 3619942301399660217
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
