@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa8bef2e71bd4338a184f7cb7fbe5292, type: 3}
   m_Name: PlayerSettingsSO
   m_EditorClassIdentifier: GameAssembly::Player.Data.PlayerSettingsSO
-  <MoveSpeed>k__BackingField: 5
+  <MoveSpeed>k__BackingField: 7
