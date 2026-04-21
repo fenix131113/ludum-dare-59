@@ -43522,6 +43522,7 @@ MonoBehaviour:
   settingButton: {fileID: 800049270}
   backFromSettingButton: {fileID: 1612010599}
   backFromPlayButton: {fileID: 1235415130}
+  exitButton: {fileID: 604732732}
   mainPanel: {fileID: 1712924425}
   playPanel: {fileID: 1435641195}
   settingsPanel: {fileID: 1559239750}

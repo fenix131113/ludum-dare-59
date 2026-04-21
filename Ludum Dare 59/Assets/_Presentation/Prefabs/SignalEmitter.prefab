@@ -29,8 +29,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 8.9, y: 4.98, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -46,9 +46,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d08977ec4b0740fc9f0b6110805ba2c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: GameAssembly::SignalSystem.SignalEmitter
-  triggerLayers:
-    serializedVersion: 2
-    m_Bits: 8
   signalCollider: {fileID: 3749295147231795548}
   signalRadius: 2
 --- !u!58 &3749295147231795548
@@ -133,9 +130,9 @@ SpriteRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_SortingOrder: 1
+  m_Sprite: {fileID: -915571392, guid: 9027f73932e8d714c8112fb7c7453dcb, type: 3}
+  m_Color: {r: 0.5990566, g: 1, b: 0.9903965, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
