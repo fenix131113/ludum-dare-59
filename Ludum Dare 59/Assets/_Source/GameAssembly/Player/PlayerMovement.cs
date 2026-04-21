@@ -6,6 +6,7 @@ using Player.Variables;
 using UnityEngine;
 using Utils.VariablesSystem;
 using VContainer;
+using Random = UnityEngine.Random;
 
 namespace Player
 {
@@ -22,6 +23,9 @@ namespace Player
 
         [SerializeField] private Rigidbody2D rb;
         [SerializeField] private Animator anim;
+        [SerializeField] private ParticleSystem dustParticles;
+        [SerializeField] private float dustMinInterval;
+        [SerializeField] private float dustMaxInterval;
 
         [Inject] private PlayerInput _input;
         [Inject] private PlayerSettingsSO _playerSettings;
@@ -34,6 +38,12 @@ namespace Player
         private SlipEffect _currentSlipEffect;
         private Vector2 _slipVelocity;
         private bool _slipAnimTriggered;
+        private float _currentDustInterval;
+
+        private void Start()
+        {
+            _currentDustInterval = Random.Range(dustMinInterval, dustMaxInterval);
+        }
 
         private void Update()
         {
@@ -68,6 +78,14 @@ namespace Player
 
             rb.linearVelocity = _input.ReadMoveVector() * _playerSettings.MoveSpeed;
             anim.SetBool(_isMoving, _input.ReadMoveVector().magnitude > 0f);
+            
+            if(_currentDustInterval > 0 && _input.ReadMoveVector().magnitude > 0f)
+                _currentDustInterval -= Time.deltaTime;
+            else if(_input.ReadMoveVector().magnitude > 0f)
+            {
+                dustParticles.Emit(1);
+                _currentDustInterval = Random.Range(dustMinInterval, dustMaxInterval);
+            }
 
             anim.SetFloat(_moveX, _input.ReadMoveVector().x);
             anim.SetFloat(_moveY, _input.ReadMoveVector().y);
