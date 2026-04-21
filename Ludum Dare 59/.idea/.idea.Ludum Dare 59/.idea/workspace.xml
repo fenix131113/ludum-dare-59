@@ -12,25 +12,16 @@
   <component name="ChangeListManager">
     <list default="true" id="fb5a9a38-eacc-4c9f-bef0-961ff49b7821" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Ludum Dare 59/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Ludum Dare 59/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Animations/Monkey/Monkey.controller" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Animations/Monkey/Monkey.controller" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Animations/Player/RunDown.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Animations/Player/RunDown.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Animations/Player/RunLeft.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Animations/Player/RunLeft.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Animations/Player/RunRight.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Animations/Player/RunRight.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Animations/Player/RunUp.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Animations/Player/RunUp.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/Banana.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/Banana.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/BananaPeel.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/BananaPeel.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/GENERAL.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/GENERAL.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/Npc/FollowRobot_1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/Npc/FollowRobot_1.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/Npc/FollowRobot_2 Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/Npc/FollowRobot_2 Variant.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/Npc/FollowRobot_3 Variant.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/Npc/FollowRobot_3 Variant.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/Npc/Monkey.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/Npc/Monkey.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/Npc/VacuumRobot.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/Npc/VacuumRobot.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/Player.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/Player.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Scenes/Levels/Level_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Scenes/Levels/Level_1.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Sprites/Props.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Sprites/Props.png.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/NpcSystem/MonkeyNpc.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/NpcSystem/MonkeyNpc.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Fonts/SonicPressStartButton[NolivantNTEdit]-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Fonts/SonicPressStartButton[NolivantNTEdit]-Regular SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Materials/FilesParticles.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Materials/FilesParticles.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/FilesDropParticles.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/FilesDropParticles.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/Ui/Minigames/FileItem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/Ui/Minigames/FileItem.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Scenes/Menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Sprites/Doors/Door_4Blocks_Front_closed.png.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Sprites/Doors/Door_4Blocks_Front_closed.png.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/Core/GameInstaller.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/Core/GameInstaller.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/MiniGames/MinigamesManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/MiniGames/MinigamesManager.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/SignalSystem/SignalTracker.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/SignalSystem/SignalTracker.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/SignalSystem/View/SignalPowerView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/SignalSystem/View/SignalPowerView.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/Physics2DSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/TagManager.asset" afterDir="false" />
     </list>
@@ -61,6 +52,9 @@
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/EffectSystem/Effects/StunEffect.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/EffectSystem/IEffectAddicted.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/EndGameSystem/View/EndGameView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/InteractionSystem/Door.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/InteractionSystem/IInteractable.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/InteractionSystem/InteractionTracker.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/LevelsSystem/LevelsRecorder.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/Menu/LevelButton.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/Menu/MenuLevelsView.cs" root0="FORCE_HIGHLIGHTING" />
@@ -184,7 +178,7 @@
       <workItem from="1776483829141" duration="2000" />
       <workItem from="1776499712605" duration="19805000" />
       <workItem from="1776521490477" duration="23006000" />
-      <workItem from="1776579318720" duration="84231000" />
+      <workItem from="1776579318720" duration="89353000" />
     </task>
     <servers />
   </component>

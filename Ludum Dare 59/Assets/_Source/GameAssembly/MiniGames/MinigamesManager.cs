@@ -34,6 +34,8 @@ namespace MiniGames
             _variablesResolver?.RegisterBlocker(_minigameBlocker);
             OnMinigameStateChanged?.Invoke();
         }
+        
+        public void PlayMinigame(IMinigame minigame) => PlayMinigame(minigame, null);
 
         public void EndMinigame()
         {

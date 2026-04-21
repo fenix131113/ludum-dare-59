@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: fa365ea6506fc2046ba8418b2a838e5a
+guid: 9c1fa74c75164604f831c98975bda484
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5023859678563641932
-    second: Door_4Blocks_Front_closed_0
+      213: -6718558775513170846
+    second: UI92_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -49,10 +49,10 @@ TextureImporter:
   spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
-  alignment: 9
-  spritePivot: {x: 0.50793654, y: 0.13207547}
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
   spritePixelsToUnits: 16
-  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteBorder: {x: 4, y: 4, z: 4, w: 4}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
   alphaIsTransparency: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Door_4Blocks_Front_closed_0
+      name: UI92_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 63
-        height: 53
+        width: 48
+        height: 48
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c4aa13692c558b540800000000000000
-      internalID: 5023859678563641932
+      spriteID: 26c34fed362e2c2a0800000000000000
+      internalID: -6718558775513170846
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Door_4Blocks_Front_closed_0: 5023859678563641932
+      UI92_0: -6718558775513170846
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

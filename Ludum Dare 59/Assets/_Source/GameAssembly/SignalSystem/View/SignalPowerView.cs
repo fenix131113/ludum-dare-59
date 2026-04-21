@@ -6,7 +6,8 @@ namespace SignalSystem.View
 {
     public class SignalPowerView : MonoBehaviour
     {
-        [SerializeField] private Image[] signalParts;
+        [SerializeField] private Image signalImage;
+        [SerializeField] private Sprite[] progressSprites;
         
         [Inject] private SignalTracker _tracker;
 
@@ -25,11 +26,20 @@ namespace SignalSystem.View
 
         private void RedrawSignal(float power)
         {
-            foreach (var signalPart in signalParts)
-                signalPart.gameObject.SetActive(false);
+            if (Mathf.Approximately(power, 1f))
+            {
+                signalImage.sprite = progressSprites[^1];
+                return;
+            }
 
-            for (var i = 0; i < power / 0.2f; i++)
-                signalParts[i].gameObject.SetActive(true);
+            var index = power switch
+            {
+                >= 0.33f and < 0.66f => 1,
+                >= 0.66f and < 1f => 2,
+                _ => 0
+            };
+
+            signalImage.sprite = progressSprites[index];
         }
 
         private void Bind() => _tracker.OnSignalPowerChanged += OnSignalPowerChanged;

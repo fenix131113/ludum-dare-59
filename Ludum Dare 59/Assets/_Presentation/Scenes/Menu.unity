@@ -798,7 +798,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: GameAssembly::Menu.LevelButton
   button: {fileID: 1430193535}
-  levelIndex: 5
+  levelIndex: 2
 --- !u!1 &2107175332
 GameObject:
   m_ObjectHideFlags: 0

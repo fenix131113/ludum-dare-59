@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using MiniGames;
+using MiniGames.Games.DoorPassword;
 using Player;
 using Player.Data;
 using UnityEngine;
@@ -14,6 +15,7 @@ namespace SignalSystem
     {
         [SerializeField] private float maxTrackDistance;
         [SerializeField] private Transform trackFromTarget;
+        [SerializeField] private GameObject pressHint;
 
         [Inject] private SignalHolder _signalHolder;
         [Inject] private PlayerInput _playerInput;
@@ -23,10 +25,15 @@ namespace SignalSystem
 
         private float _signalPower;
         private BaseMinigame _lastMinigame;
+        private DoorPasswordMinigame _doorMinigame;
 
         public event Action<float, float> OnSignalPowerChanged;
 
-        private void Start() => Bind();
+        private void Start()
+        {
+            Bind();
+            _doorMinigame = FindFirstObjectByType<DoorPasswordMinigame>(FindObjectsInactive.Include);
+        }
 
         private void OnDestroy() => Expose();
 
@@ -52,7 +59,7 @@ namespace SignalSystem
                 _playerVariables.IsVariableBlocked(PlayerVariableBlockerType.SEND_SIGNAL))
                 return;
 
-            _lastMinigame = _minigames.Except(new[] { _lastMinigame }).GetRandomElement();
+            _lastMinigame = _minigames.Except(new[] { _lastMinigame, _doorMinigame }).GetRandomElement();
             _minigamesManager.PlayMinigame(_lastMinigame, _signalHolder.GetCurrentSignal());
         }
 
@@ -60,6 +67,9 @@ namespace SignalSystem
         {
             var temp = _signalPower;
             _signalPower = power;
+            
+            pressHint.SetActive(Mathf.Approximately(power, 1f));
+            
             OnSignalPowerChanged?.Invoke(temp, power);
         }
 

@@ -68,6 +68,7 @@ namespace Core
             
             builder.RegisterComponentInHierarchy<GameCondition>();
             builder.RegisterComponentInHierarchy<MinigamesManager>();
+            builder.RegisterComponentInHierarchy<AstarPath>();
             builder.Register<EndGame>(Lifetime.Scoped);
             builder.RegisterInstance(levelData);
             
