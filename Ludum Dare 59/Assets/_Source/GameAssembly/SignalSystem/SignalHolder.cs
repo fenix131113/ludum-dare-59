@@ -10,6 +10,8 @@ namespace SignalSystem
     {
         [SerializeField] private List<Transform> signalSpawnPoints;
         [SerializeField] private SignalEmitter emitterPrefab;
+        [SerializeField] private float minNextSignalSpawnDistance;
+        [SerializeField] private float maxNextSignalSpawnDistance = float.MaxValue;
 
         private SignalEmitter _currentSignal;
         private Transform _lastSpawnPoint;
@@ -30,7 +32,9 @@ namespace SignalSystem
 
         private void SpawnNewSignal()
         {
-            if (signalSpawnPoints.Count < 2)
+            var availableSpawnPoints = signalSpawnPoints.Where(x => x).ToArray();
+
+            if (availableSpawnPoints.Length < 2)
             {
 #if UNITY_EDITOR
                 Debug.LogWarning("Not enough signal spawn points!");
@@ -41,8 +45,37 @@ namespace SignalSystem
             if (_currentSignal)
                 DestroySignal(_currentSignal);
 
-            _lastSpawnPoint = signalSpawnPoints.Except(new[] { _lastSpawnPoint }).GetRandomElement();
+            _lastSpawnPoint = GetNextSpawnPoint(availableSpawnPoints);
+
+            if (!_lastSpawnPoint)
+                return;
+
             InitializeSignal(Instantiate(emitterPrefab, _lastSpawnPoint.position, Quaternion.identity));
+        }
+
+        private Transform GetNextSpawnPoint(IEnumerable<Transform> availableSpawnPoints)
+        {
+            if (!_lastSpawnPoint)
+                return availableSpawnPoints.GetRandomElement();
+
+            var minDistance = minNextSignalSpawnDistance > 0 ? minNextSignalSpawnDistance : 0;
+            var maxDistance = maxNextSignalSpawnDistance > 0 ? maxNextSignalSpawnDistance : float.MaxValue;
+
+            if (maxDistance < minDistance)
+                maxDistance = minDistance;
+
+            var fallbackSpawnPoints = availableSpawnPoints.Except(new[] { _lastSpawnPoint }).ToArray();
+            var suitableSpawnPoints = fallbackSpawnPoints
+                .Where(x =>
+                {
+                    var distance = Vector2.Distance(_lastSpawnPoint.position, x.position);
+                    return distance >= minDistance && distance <= maxDistance;
+                })
+                .ToArray();
+
+            return suitableSpawnPoints.Length > 0
+                ? suitableSpawnPoints.GetRandomElement()
+                : fallbackSpawnPoints.GetRandomElement();
         }
 
         private void OnCurrentSignalSent()
