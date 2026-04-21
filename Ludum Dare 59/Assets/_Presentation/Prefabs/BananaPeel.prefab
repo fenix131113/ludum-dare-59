@@ -31,8 +31,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.63, y: -1.52, z: 0}
-  m_LocalScale: {x: 0.58094335, y: 0.58094335, z: 0.58094335}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -83,8 +83,8 @@ SpriteRenderer:
   m_SortingLayerID: -1553219853
   m_SortingLayer: 1
   m_SortingOrder: -1
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.8018868, g: 0.6679498, b: 0, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 53942df54d5b88047a98f44eac5112a0, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -92,7 +92,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 2
   m_SpriteSortPoint: 0
 --- !u!58 &353782056677064936
 CircleCollider2D:
@@ -162,7 +162,7 @@ MonoBehaviour:
   triggerLayers:
     serializedVersion: 2
     m_Bits: 8
-  slipDuration: 1.5
+  slipDuration: 1
   slipDeceleration: 3
   slipCooldown: 5
 --- !u!114 &-346321728667420760

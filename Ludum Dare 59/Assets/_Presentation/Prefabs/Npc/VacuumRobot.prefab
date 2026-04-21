@@ -95,7 +95,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 2
   m_SpriteSortPoint: 1
 --- !u!114 &6758100793049080255
 MonoBehaviour:
@@ -219,7 +219,7 @@ MonoBehaviour:
   triggerLayers:
     serializedVersion: 2
     m_Bits: 8
-  slipDuration: 1.5
+  slipDuration: 1
   slipDeceleration: 3
   slipCooldown: 5
 --- !u!58 &2594694454770447185

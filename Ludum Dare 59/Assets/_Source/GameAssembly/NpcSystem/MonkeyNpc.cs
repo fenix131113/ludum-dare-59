@@ -222,6 +222,7 @@ namespace NpcSystem
             if (_throwCooldownLeft > 0)
                 return;
 
+            _animThrow = false;
             _throwCooldownLeft = throwCooldown;
             _throwStopTimeLeft = throwStopDuration;
             var direction = (playerPoint - (Vector2)transform.position).normalized;
@@ -239,7 +240,6 @@ namespace NpcSystem
             if (_throwCooldownLeft <= 0)
                 return;
 
-            _animThrow = false;
             _throwCooldownLeft -= Time.deltaTime;
         }
 

@@ -60,6 +60,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: -1973689878988033625, guid: d5eeacbfa298e844e9eac0164b98ce72, type: 3}
+    - target: {fileID: 7288545992016773089, guid: 5f94a435e93a1db46b136d806301b90a, type: 3}
+      propertyPath: m_MaskInteraction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8460421384565244335, guid: 5f94a435e93a1db46b136d806301b90a, type: 3}
+      propertyPath: slipDuration
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

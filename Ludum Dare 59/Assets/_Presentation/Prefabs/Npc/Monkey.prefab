@@ -93,7 +93,7 @@ SpriteRenderer:
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
+  m_MaskInteraction: 2
   m_SpriteSortPoint: 1
 --- !u!114 &5076769360802068559
 MonoBehaviour:
@@ -199,7 +199,7 @@ MonoBehaviour:
   retreatPointReachDistance: 0.1
   lostSightDelay: 0.15
   retreatSpeedMultiplier: 1.3
-  throwCooldown: 0.3
+  throwCooldown: 2.5
   throwStopDuration: 1
   anim: {fileID: 3082302407723471816}
 --- !u!114 &717907520651914786
