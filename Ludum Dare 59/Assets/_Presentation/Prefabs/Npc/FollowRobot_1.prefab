@@ -181,7 +181,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: GameAssembly::NpcSystem.FollowRobotNpc
   aiPath: {fileID: 8227430123943600904}
   movePoints: []
-  moveSpeed: 3
+  moveSpeed: 4
   pointReachDistance: 0.1
   destinationUpdateDistance: 0.1
   constrainInsideGraph: 1
