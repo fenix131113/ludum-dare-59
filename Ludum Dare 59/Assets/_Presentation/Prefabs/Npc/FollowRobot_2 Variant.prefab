@@ -12,6 +12,10 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 9fe3029613b4fd44a924a95155558707, type: 2}
+    - target: {fileID: 4337264145021565190, guid: 5f94a435e93a1db46b136d806301b90a, type: 3}
+      propertyPath: moveSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5980249444288111376, guid: 5f94a435e93a1db46b136d806301b90a, type: 3}
       propertyPath: m_Name
       value: FollowRobot_2 Variant
