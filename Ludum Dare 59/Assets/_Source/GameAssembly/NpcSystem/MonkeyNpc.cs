@@ -2,6 +2,7 @@ using System;
 using Player;
 using UnityEngine;
 using Utils;
+using Utils.Extensions;
 using VContainer;
 using Random = UnityEngine.Random;
 
@@ -29,7 +30,13 @@ namespace NpcSystem
         [SerializeField] private float retreatSpeedMultiplier = 1.4f;
         [SerializeField] private float throwCooldown;
         [SerializeField] private float throwStopDuration = 1f;
+        [SerializeField] private float minPassiveSoundInterval = 3f;
+        [SerializeField] private float maxPassiveSoundInterval = 6f;
         [SerializeField] private Animator anim;
+        [SerializeField] private AudioClip[] passiveSounds;
+        [SerializeField] private AudioClip[] attackSounds;
+        [SerializeField] private AudioClip throwSound;
+        [SerializeField] private AudioSource monkeyAudioSource;
 
         [Inject] private PlayerMovement _playerTarget;
         
@@ -38,6 +45,7 @@ namespace NpcSystem
         private float _throwStopTimeLeft;
         private float _lostSightTime;
         private float _searchTime;
+        private float _passiveSoundTimeLeft;
         private Vector2 _lastSeenPlayerPoint;
         private Vector2 _retreatPoint;
         private Vector2 _playerPoint;
@@ -49,10 +57,13 @@ namespace NpcSystem
         private void Start()
         {
             ObjectInjector.InjectObject(this);
+            GeneratePassiveSoundTime();
         }
 
         protected override void Tick()
         {
+            TickPassiveSound();
+                
             anim.SetFloat(_moveX, aiPath.velocity.x);
             anim.SetFloat(_moveY, aiPath.velocity.y);
             anim.SetBool(_isMoving, aiPath.velocity.magnitude > 0);
@@ -107,6 +118,23 @@ namespace NpcSystem
             _searchTime = 0;
             _state = MonkeyState.PATROL;
             Patrol();
+        }
+
+        private void TickPassiveSound()
+        {
+            if (_passiveSoundTimeLeft > 0)
+            {
+                _passiveSoundTimeLeft -= Time.deltaTime;
+                return;
+            }
+
+            GeneratePassiveSoundTime();
+            monkeyAudioSource.PlayOneShot(passiveSounds.GetRandomElement());
+        }
+
+        private void GeneratePassiveSoundTime()
+        {
+            _passiveSoundTimeLeft = Random.Range(minPassiveSoundInterval, maxPassiveSoundInterval);
         }
 
         private void TickCombat(Vector2 playerPoint, bool canThrow = true)
@@ -230,6 +258,7 @@ namespace NpcSystem
             anim.SetFloat(_throwX, direction.x);
             anim.SetFloat(_throwY, direction.y);
             anim.SetTrigger(_throw);
+            monkeyAudioSource.PlayOneShot(attackSounds.GetRandomElement());
             
             StopMoving();
             _playerPoint = playerPoint;
@@ -258,6 +287,7 @@ namespace NpcSystem
             if(_animThrow)
                 return;
             
+            monkeyAudioSource.PlayOneShot(throwSound);
             OnBananaThrowRequested?.Invoke(_playerPoint);
             _animThrow = true;
         }

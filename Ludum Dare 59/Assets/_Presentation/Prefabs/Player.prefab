@@ -5033,8 +5033,23 @@ MonoBehaviour:
   rb: {fileID: 1739501875097483860}
   anim: {fileID: 7380962991211043858}
   dustParticles: {fileID: 7386987759462709049}
-  dustMinInterval: 0.1
-  dustMaxInterval: 0.2
+  dustMinInterval: 0.2
+  dustMaxInterval: 0.3
+  stepsSounds:
+  - {fileID: 8300000, guid: de84bc9809690124e86db6136bb24455, type: 3}
+  - {fileID: 8300000, guid: d975860548053184ebc10fc9453455f4, type: 3}
+  - {fileID: 8300000, guid: f354ccce1edbdf545bae710463c96c0a, type: 3}
+  - {fileID: 8300000, guid: 04212819e8005c84783bb6532756d214, type: 3}
+  fallSounds:
+  - {fileID: 8300000, guid: 2962fd32d986f6d44a06f11a54d2b3d4, type: 3}
+  - {fileID: 8300000, guid: e8f8e478bc042e04a82890dd04aae071, type: 3}
+  - {fileID: 8300000, guid: bcb7080b63257574c931af5364e43ed1, type: 3}
+  - {fileID: 8300000, guid: c245d97712dfbeb44b3e3ec94f777d07, type: 3}
+  - {fileID: 8300000, guid: ce7016f94c3b10a49b41033c25826245, type: 3}
+  minStepSoundInterval: 0.2
+  maxStepSoundInterval: 0.3
+  stepSoundsVolume: 0.7
+  fallSoundsVolume: 1
 --- !u!114 &7471891298342676964
 MonoBehaviour:
   m_ObjectHideFlags: 0

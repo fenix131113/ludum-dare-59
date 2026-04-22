@@ -90,7 +90,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: GameAssembly::MiniGames.Games.FingerPrintGame.FingerButton
   button: {fileID: 3502450808145163776}
-  buttonImage: {fileID: 461100195379569926}
+  buttonImage: {fileID: 2787038033203575518}
 --- !u!1 &3576586798574897332
 GameObject:
   m_ObjectHideFlags: 0

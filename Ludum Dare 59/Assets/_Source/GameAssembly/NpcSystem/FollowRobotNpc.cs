@@ -20,6 +20,7 @@ namespace NpcSystem
         [SerializeField] private float stopDuration = 1f;
         [SerializeField] private Collider2D triggerCollider;
         [SerializeField] private Animator anim;
+        [SerializeField] private AudioSource robotAudioSource;
 
         [Inject] private PlayerMovement _playerTarget;
 
@@ -39,6 +40,11 @@ namespace NpcSystem
             anim.SetFloat(_moveX, aiPath.velocity.x);
             anim.SetFloat(_moveY, aiPath.velocity.y);
             anim.SetBool(_isMoving, aiPath.velocity.magnitude > 0);
+            
+            if(aiPath.velocity.magnitude > 0 && robotAudioSource)
+                robotAudioSource?.UnPause();
+            else if(robotAudioSource)
+                robotAudioSource?.Pause();
 
             if (TickStop())
                 return;
