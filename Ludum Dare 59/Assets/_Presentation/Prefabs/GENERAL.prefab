@@ -5963,7 +5963,7 @@ Transform:
   m_GameObject: {fileID: 1106674677313964280}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.91, y: -16.85, z: -10}
+  m_LocalPosition: {x: 24.87, y: 13.62, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19992,7 +19992,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 204}
-  m_SizeDelta: {x: 280.2167, y: 70.0542}
+  m_SizeDelta: {x: 654.1, y: 70.05}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6156443206664072105
 CanvasRenderer:
@@ -23765,7 +23765,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 39.96}
+  m_AnchoredPosition: {x: 0, y: 39.95999}
   m_SizeDelta: {x: 435.37, y: 79.92}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6472965305678225842
@@ -47531,11 +47531,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1762449481769585097, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Center.x
-      value: 7.4686356
+      value: 5.967514
       objectReference: {fileID: 0}
     - target: {fileID: 1762449481769585097, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Extent.x
-      value: 1.000145
+      value: 2.5012665
       objectReference: {fileID: 0}
     - target: {fileID: 2116689976188075786, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
       propertyPath: m_Color.b
@@ -47571,19 +47571,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4321903968740231395, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Center.x
-      value: 25.263367
+      value: 5.9781494
       objectReference: {fileID: 0}
     - target: {fileID: 4321903968740231395, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Center.y
-      value: -10.719276
+      value: -1.2973175
       objectReference: {fileID: 0}
     - target: {fileID: 4321903968740231395, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Extent.x
-      value: 26.59581
+      value: 45.96376
       objectReference: {fileID: 0}
     - target: {fileID: 4321903968740231395, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Extent.y
-      value: 13.091698
+      value: 24.782623
       objectReference: {fileID: 0}
     - target: {fileID: 4440683107090666366, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Center.x
@@ -47663,19 +47663,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6026597844797449590, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Center.x
-      value: -0.5314026
+      value: -1.5318222
       objectReference: {fileID: 0}
     - target: {fileID: 6026597844797449590, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Center.y
-      value: -7.982765
+      value: -7.94841
       objectReference: {fileID: 0}
     - target: {fileID: 6026597844797449590, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Extent.x
-      value: 8.999847
+      value: 10.000267
       objectReference: {fileID: 0}
     - target: {fileID: 6026597844797449590, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Extent.y
-      value: 5.414131
+      value: 5.4484863
       objectReference: {fileID: 0}
     - target: {fileID: 7398480268545079747, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
       propertyPath: m_Intensity
@@ -47819,19 +47819,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8837087583351938209, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Center.x
-      value: -4.038452
+      value: -5.6877136
       objectReference: {fileID: 0}
     - target: {fileID: 8837087583351938209, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Center.y
-      value: 5.643135
+      value: 6.604164
       objectReference: {fileID: 0}
     - target: {fileID: 8837087583351938209, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Extent.x
-      value: 4.5068817
+      value: 6.156143
       objectReference: {fileID: 0}
     - target: {fileID: 8837087583351938209, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Extent.y
-      value: 1.9893265
+      value: 5.043129
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

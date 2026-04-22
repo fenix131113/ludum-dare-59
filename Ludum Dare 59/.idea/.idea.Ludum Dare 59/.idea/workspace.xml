@@ -10,11 +10,7 @@
     <configurations />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fb5a9a38-eacc-4c9f-bef0-961ff49b7821" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Animations/Player/RunRight.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Animations/Player/RunRight.anim" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/SignalEmitter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/SignalEmitter.prefab" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Scenes/Levels/Level_3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Scenes/Levels/Level_3.unity" afterDir="false" />
-    </list>
+    <list default="true" id="fb5a9a38-eacc-4c9f-bef0-961ff49b7821" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
