@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 
 namespace MiniGames.Games.FilesDrag
 {
-    public class DragFileItem : MonoBehaviour, IEndDragHandler
+    public class DragFileItem : MonoBehaviour, IEndDragHandler, IDragHandler
     {
         [SerializeField] private HoldItem holdItem;
         [SerializeField] private RectTransform rect;
@@ -13,26 +13,48 @@ namespace MiniGames.Games.FilesDrag
         private Vector2 _startLocalPosition;
         private RectTransform _dropZone;
         private bool _isDropped;
+        private bool _isOverDropZone;
         private bool _initialized;
         private readonly Vector3[] _rectCorners = new Vector3[4];
         private readonly Vector3[] _dropZoneCorners = new Vector3[4];
 
         public event Action<DragFileItem> OnFileDropped;
+        public event Action<DragFileItem, bool> OnDropZoneHoverChanged;
 
         public void SetDropZone(RectTransform dropZone) => _dropZone = dropZone;
+
+        public void OnDrag(PointerEventData eventData)
+        {
+            if (_isDropped || !_dropZone || !rect)
+                return;
+
+            UpdateDropZoneState(IsOverDropZone());
+        }
 
         public void OnEndDrag(PointerEventData eventData)
         {
             if (_isDropped || !_dropZone || !rect)
                 return;
 
-            if (!IsOverDropZone())
+            var isOverDropZone = IsOverDropZone();
+            UpdateDropZoneState(false);
+
+            if (!isOverDropZone)
                 return;
 
             _isDropped = true;
             holdItem?.BlockItem();
             gameObject.SetActive(false);
             OnFileDropped?.Invoke(this);
+        }
+
+        private void UpdateDropZoneState(bool isOverDropZone)
+        {
+            if (_isOverDropZone == isOverDropZone)
+                return;
+
+            _isOverDropZone = isOverDropZone;
+            OnDropZoneHoverChanged?.Invoke(this, isOverDropZone);
         }
 
         private bool IsOverDropZone()
@@ -66,6 +88,7 @@ namespace MiniGames.Games.FilesDrag
             }
 
             _isDropped = false;
+            UpdateDropZoneState(false);
             holdItem?.UnblockItem();
 
             if (rect)

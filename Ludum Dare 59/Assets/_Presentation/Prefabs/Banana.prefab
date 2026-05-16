@@ -144,7 +144,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 9
   speed: 16
-  rotationSpeed: 720
+  rotationSpeed: 1200
   destroyTime: 10
   triggerZoneMinDistance: 0.3
   bananaPeel: {fileID: 1685961935659788284, guid: 01de5df7ce69a784ebfdbc1c7b9f014e, type: 3}

@@ -34,8 +34,10 @@ namespace SignalSystem.View
 
             var index = power switch
             {
-                >= 0.33f and < 0.66f => 1,
-                >= 0.66f and < 1f => 2,
+                >= 0.2f and < 0.4f => 1,
+                >= 0.4f and < 0.6f => 2,
+                >= 0.6f and < 0.8f => 3,
+                >= 0.8f and < 1f => 4,
                 _ => 0
             };
 
