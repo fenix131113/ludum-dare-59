@@ -1,6 +1,8 @@
+using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using Utils.Extensions;
 
 namespace MiniGames.Games.FilesDrag
@@ -9,10 +11,14 @@ namespace MiniGames.Games.FilesDrag
     {
         [SerializeField] private GameObject minigamePanel;
         [SerializeField] private RectTransform dropZone;
+        [SerializeField] private Image folderImage;
+        [SerializeField] private Sprite openFolderSprite;
+        [SerializeField] private Sprite closeFolderSprite;
         [SerializeField] private DragFileItem[] fileItems;
         [SerializeField] private TMP_Text filesCounter;
         [SerializeField] private int fileCount = 8;
 
+        private readonly HashSet<DragFileItem> _hoveredFiles = new();
         private bool _isBind;
         private int _currentTransferredFiles;
         private int _currentNeedFilesCount;
@@ -33,6 +39,7 @@ namespace MiniGames.Games.FilesDrag
         public override void EndMinigame()
         {
             minigamePanel.SetActive(false);
+            SetFolderOpened(false);
         }
 
         public override void ResetGame()
@@ -42,10 +49,13 @@ namespace MiniGames.Games.FilesDrag
             
             RedrawCounter();
             ResetFiles();
+            SetFolderOpened(false);
         }
 
         private void ResetFiles()
         {
+            _hoveredFiles.Clear();
+            
             foreach (var item in fileItems)
             {
                 if (!item)
@@ -71,9 +81,20 @@ namespace MiniGames.Games.FilesDrag
         {
             _currentTransferredFiles++;
             RedrawCounter();
+            SetFolderOpened(false);
 
             if (_currentTransferredFiles >= _currentNeedFilesCount)
                 InvokeGameEnded();
+        }
+
+        private void OnDropZoneHoverChanged(DragFileItem fileItem, bool isOverDropZone)
+        {
+            if (isOverDropZone)
+                _hoveredFiles.Add(fileItem);
+            else
+                _hoveredFiles.Remove(fileItem);
+
+            SetFolderOpened(_hoveredFiles.Count > 0);
         }
 
         private void RedrawCounter()
@@ -82,13 +103,30 @@ namespace MiniGames.Games.FilesDrag
                 filesCounter.text = $"{_currentTransferredFiles}/{_currentNeedFilesCount}";
         }
 
+        private void SetFolderOpened(bool isOpened)
+        {
+            if (isOpened)
+            {
+                if (openFolderSprite)
+                    folderImage.sprite = openFolderSprite;
+
+                return;
+            }
+
+            if (closeFolderSprite)
+                folderImage.sprite = closeFolderSprite;
+        }
+
         private void Bind()
         {
             if (_isBind)
                 return;
 
             foreach (var fileItem in fileItems)
+            {
                 fileItem.OnFileDropped += OnFileDropped;
+                fileItem.OnDropZoneHoverChanged += OnDropZoneHoverChanged;
+            }
 
             _isBind = true;
         }
@@ -99,7 +137,10 @@ namespace MiniGames.Games.FilesDrag
                 return;
 
             foreach (var fileItem in fileItems)
+            {
                 fileItem.OnFileDropped -= OnFileDropped;
+                fileItem.OnDropZoneHoverChanged -= OnDropZoneHoverChanged;
+            }
 
             _isBind = false;
         }

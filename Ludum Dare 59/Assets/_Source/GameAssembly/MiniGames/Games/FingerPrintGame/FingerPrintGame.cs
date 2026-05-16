@@ -36,6 +36,8 @@ namespace MiniGames.Games.FingerPrintGame
         {
             Generate();
             confirmButton.interactable = false;
+            _currentAnswerButton?.SetInteractable(true);
+            _currentAnswerButton = null;
         }
 
         private void Generate()

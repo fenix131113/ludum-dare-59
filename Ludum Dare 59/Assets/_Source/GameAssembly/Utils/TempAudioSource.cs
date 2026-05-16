@@ -6,7 +6,7 @@ namespace Utils
     {
         [SerializeField] private AudioSource audioSource;
 
-        public void PlayAndDestroy(AudioClip clip = null)
+        public void PlayAndDestroy(AudioClip clip = null,  float volume = float.MinValue)
         {
             if (!clip)
             {
@@ -15,7 +15,11 @@ namespace Utils
                 return;
             }
             
-            audioSource.PlayOneShot(clip);
+            if(Mathf.Approximately(float.MinValue, volume))
+                audioSource.PlayOneShot(clip);
+            else
+                audioSource.PlayOneShot(clip, volume);
+            
             Destroy(audioSource.gameObject, clip.length);
         }
     }

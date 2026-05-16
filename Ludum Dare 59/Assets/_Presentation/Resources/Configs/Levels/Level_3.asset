@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: Level_3
   m_EditorClassIdentifier: GameAssembly::LevelsSystem.Data.LevelDataSO
   <LevelNumber>k__BackingField: 4
+  <NextLevelIndex>k__BackingField: -1

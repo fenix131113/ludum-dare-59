@@ -17,9 +17,13 @@ namespace MiniGames.Games.DoorPassword
         [SerializeField] private Sprite defaultMonitorSprite;
         [SerializeField] private Sprite successMonitorSprite;
         [SerializeField] private int passwordLength = 4;
+        [SerializeField] private Image tabletImage;
+        [SerializeField] private Image tabletBackImage;
+        [SerializeField] private GameObject backFade;
+        [SerializeField] private float waitBeforeCloseTime = 0.25f;
 
         private readonly List<int> _password = new();
-                                                                 private readonly List<int> _currentInput = new();
+        private readonly List<int> _currentInput = new();
         private bool _isBind;
 
         private void Start() => Bind();
@@ -30,11 +34,17 @@ namespace MiniGames.Games.DoorPassword
         {
             ResetGame();
             minigamePanel.SetActive(true);
+            tabletImage.enabled = false;
+            tabletBackImage.enabled = false;
+            backFade.SetActive(true);
         }
 
         public override void EndMinigame()
         {
             minigamePanel.SetActive(false);
+            tabletImage.enabled = true;
+            tabletBackImage.enabled = true;
+            backFade.SetActive(false);
         }
 
         public override void ResetGame()
@@ -54,7 +64,7 @@ namespace MiniGames.Games.DoorPassword
 
             if (passwordLength <= 0)
                 return;
-            
+
             var possibleValues = passwordButtons.Where(x => x).Select(x => x.Value).ToList();
 
             if (possibleValues.Count == 0)
@@ -83,7 +93,7 @@ namespace MiniGames.Games.DoorPassword
             {
                 SetButtonsInteractable(false);
                 SetMonitorSuccessState();
-                InvokeGameEnded();
+                Invoke(nameof(InvokeGameEnded), waitBeforeCloseTime);
                 return;
             }
 
@@ -168,7 +178,7 @@ namespace MiniGames.Games.DoorPassword
         {
             if (_isBind)
                 return;
-            
+
             foreach (var passwordButton in passwordButtons)
                 passwordButton.OnClicked += OnPasswordButtonClicked;
 

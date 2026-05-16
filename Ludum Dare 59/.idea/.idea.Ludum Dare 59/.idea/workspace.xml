@@ -11,9 +11,33 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb5a9a38-eacc-4c9f-bef0-961ff49b7821" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Animations/Player/RunRight.anim" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Animations/Player/RunRight.anim" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Ludum Dare 59/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Ludum Dare 59/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Fonts/SonicPressStartButton[NolivantNTEdit]-Outline  Red SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Fonts/SonicPressStartButton[NolivantNTEdit]-Outline  Red SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Fonts/SonicPressStartButton[NolivantNTEdit]-Regular Outline Light Blue SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Fonts/SonicPressStartButton[NolivantNTEdit]-Regular Outline Light Blue SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Fonts/SonicPressStartButton[NolivantNTEdit]-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Fonts/SonicPressStartButton[NolivantNTEdit]-Regular SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Fonts/VMVSegaGenesis-Regular SDF.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Fonts/VMVSegaGenesis-Regular SDF.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Materials/FilesParticles.mat" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Materials/FilesParticles.mat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/Banana.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/Banana.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/GENERAL.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/GENERAL.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/SignalEmitter.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/SignalEmitter.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/Ui/Minigames/FileItem.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Prefabs/Ui/Minigames/FileItem.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Resources/Configs/Levels/Level_1.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Resources/Configs/Levels/Level_1.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Resources/Configs/Levels/Level_2.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Resources/Configs/Levels/Level_2.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Resources/Configs/Levels/Level_3.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Resources/Configs/Levels/Level_3.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Scenes/Levels/Level_1.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Scenes/Levels/Level_1.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Scenes/Levels/Level_2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Scenes/Levels/Level_2.unity" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Scenes/Levels/Level_3.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Scenes/Levels/Level_3.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Scenes/Menu.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Presentation/Scenes/Menu.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Sprites/Ui/FileTexture.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Presentation/Sprites/Ui/FileTexture.png.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/EndGameSystem/View/EndGameView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/EndGameSystem/View/EndGameView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/LevelsSystem/Data/LevelDataSO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/LevelsSystem/Data/LevelDataSO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/MiniGames/Games/DoorPassword/DoorPasswordMinigame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/MiniGames/Games/DoorPassword/DoorPasswordMinigame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/MiniGames/Games/FilesDrag/DragFileItem.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/MiniGames/Games/FilesDrag/DragFileItem.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/MiniGames/Games/FilesDrag/FilesDragMinigame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/MiniGames/Games/FilesDrag/FilesDragMinigame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/MiniGames/Games/FingerPrintGame/FingerPrintGame.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/MiniGames/Games/FingerPrintGame/FingerPrintGame.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Source/GameAssembly/SignalSystem/View/SignalPowerView.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Source/GameAssembly/SignalSystem/View/SignalPowerView.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Support/Plugins/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Support/Plugins/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +100,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/TimerSystem/Timer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/TimerSystem/TimersHandler.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/TimerSystem/View/TimerView.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/Utils/AudioStarter.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/Utils/SceneLoader.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/Utils/TempGameObject.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/_Source/GameAssembly/Utils/VariablesSystem/IVariableBlocker.cs" root0="FORCE_HIGHLIGHTING" />
@@ -172,6 +197,11 @@
       <workItem from="1776499712605" duration="19805000" />
       <workItem from="1776521490477" duration="23006000" />
       <workItem from="1776579318720" duration="89353000" />
+      <workItem from="1776943467039" duration="11351000" />
+      <workItem from="1776984168897" duration="429000" />
+      <workItem from="1776987109122" duration="126000" />
+      <workItem from="1776987487830" duration="120000" />
+      <workItem from="1778928412556" duration="875000" />
     </task>
     <servers />
   </component>

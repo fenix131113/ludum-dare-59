@@ -6,5 +6,6 @@ namespace LevelsSystem.Data
     public class LevelDataSO : ScriptableObject
     {
         [field: SerializeField] public int LevelNumber { get; private set; }
+        [field: SerializeField] public int NextLevelIndex { get; private set; } = -1;
     }
 }

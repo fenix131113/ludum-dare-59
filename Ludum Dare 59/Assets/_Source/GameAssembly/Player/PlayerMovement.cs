@@ -4,6 +4,8 @@ using EffectSystem.Effects;
 using Player.Data;
 using Player.Variables;
 using UnityEngine;
+using Utils;
+using Utils.Extensions;
 using Utils.VariablesSystem;
 using VContainer;
 using Random = UnityEngine.Random;
@@ -26,6 +28,12 @@ namespace Player
         [SerializeField] private ParticleSystem dustParticles;
         [SerializeField] private float dustMinInterval;
         [SerializeField] private float dustMaxInterval;
+        [SerializeField] private AudioClip[] stepsSounds;
+        [SerializeField] private AudioClip[] fallSounds;
+        [SerializeField] private float minStepSoundInterval = 0.2f;
+        [SerializeField] private float maxStepSoundInterval = 0.3f;
+        [SerializeField] private float stepSoundsVolume = 0.7f;
+        [SerializeField] private float fallSoundsVolume = 0.7f;
 
         [Inject] private PlayerInput _input;
         [Inject] private PlayerSettingsSO _playerSettings;
@@ -39,10 +47,12 @@ namespace Player
         private Vector2 _slipVelocity;
         private bool _slipAnimTriggered;
         private float _currentDustInterval;
+        private float _currentStepInterval;
 
         private void Start()
         {
-            _currentDustInterval = Random.Range(dustMinInterval, dustMaxInterval);
+            GenerateStepInterval();
+            GenerateDustInterval();
         }
 
         private void Update()
@@ -78,18 +88,32 @@ namespace Player
 
             rb.linearVelocity = _input.ReadMoveVector() * _playerSettings.MoveSpeed;
             anim.SetBool(_isMoving, _input.ReadMoveVector().magnitude > 0f);
-            
-            if(_currentDustInterval > 0 && _input.ReadMoveVector().magnitude > 0f)
+
+            if (_currentDustInterval > 0 && _input.ReadMoveVector().magnitude > 0f)
                 _currentDustInterval -= Time.deltaTime;
-            else if(_input.ReadMoveVector().magnitude > 0f)
+            else if (_input.ReadMoveVector().magnitude > 0f)
             {
                 dustParticles.Emit(1);
-                _currentDustInterval = Random.Range(dustMinInterval, dustMaxInterval);
+                GenerateDustInterval();
+            }
+
+            if (_currentStepInterval > 0 && _input.ReadMoveVector().magnitude > 0f)
+                _currentStepInterval -= Time.deltaTime;
+            else if (_input.ReadMoveVector().magnitude > 0f)
+            {
+                AudioStarter.PlaySound(stepsSounds.GetRandomElement(), stepSoundsVolume);
+                GenerateStepInterval();
             }
 
             anim.SetFloat(_moveX, _input.ReadMoveVector().x);
             anim.SetFloat(_moveY, _input.ReadMoveVector().y);
         }
+
+        private void GenerateStepInterval() =>
+            _currentStepInterval = Random.Range(minStepSoundInterval, maxStepSoundInterval);
+
+        private void GenerateDustInterval() =>
+            _currentDustInterval = Random.Range(dustMinInterval, dustMaxInterval);
 
         public bool ApplyEffect(BaseEffect effect)
         {
@@ -112,6 +136,7 @@ namespace Player
                 if (_currentSlipEffect is { IsActive: true } || rb.linearVelocity.sqrMagnitude <= Mathf.Epsilon)
                     return false;
 
+                AudioStarter.PlaySound(fallSounds.GetRandomElement(), fallSoundsVolume);
                 _currentSlipEffect = slipEffect;
                 _slipVelocity = rb.linearVelocity;
                 return true;
