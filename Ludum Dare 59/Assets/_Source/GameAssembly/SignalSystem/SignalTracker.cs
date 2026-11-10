@@ -31,11 +31,11 @@ namespace SignalSystem
 
         private void Start()
         {
-            Bind();
+            //Bind();
             _doorMinigame = FindFirstObjectByType<DoorPasswordMinigame>(FindObjectsInactive.Include);
         }
 
-        private void OnDestroy() => Expose();
+        //  private void OnDestroy() => Expose();
 
         private void Update()
         {
@@ -51,9 +51,11 @@ namespace SignalSystem
 
             if (!Mathf.Approximately(result, _signalPower))
                 SetSignalPower(result);
+
+            OnSignalReached();
         }
 
-        private void OnSendSignalClicked()
+        private void OnSignalReached()
         {
             if (!Mathf.Approximately(_signalPower, 1f) || !_signalHolder.GetCurrentSignal() ||
                 _playerVariables.IsVariableBlocked(PlayerVariableBlockerType.SEND_SIGNAL))
@@ -67,16 +69,16 @@ namespace SignalSystem
         {
             var temp = _signalPower;
             _signalPower = power;
-            
-            pressHint.SetActive(Mathf.Approximately(power, 1f));
-            
+
+            // pressHint.SetActive(Mathf.Approximately(power, 1f));
+
             OnSignalPowerChanged?.Invoke(temp, power);
         }
 
         public float GetSignalPower01() => _signalPower;
 
-        private void Bind() => _playerInput.OnSendSignalClicked += OnSendSignalClicked;
+        //  private void Bind() => _playerInput.OnSendSignalClicked += OnSendSignalClicked;
 
-        private void Expose() => _playerInput.OnSendSignalClicked -= OnSendSignalClicked;
+        //  private void Expose() => _playerInput.OnSendSignalClicked -= OnSendSignalClicked;
     }
 }

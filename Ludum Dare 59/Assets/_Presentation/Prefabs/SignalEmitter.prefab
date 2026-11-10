@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: GameAssembly::SignalSystem.SignalEmitter
   signalCollider: {fileID: 3749295147231795548}
-  signalRadius: 2
+  signalRadius: 1
 --- !u!58 &3749295147231795548
 CircleCollider2D:
   m_ObjectHideFlags: 0
