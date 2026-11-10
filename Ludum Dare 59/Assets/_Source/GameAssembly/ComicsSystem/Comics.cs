@@ -13,11 +13,21 @@ namespace ComicsSystem
 
         private int _currentComicsNum;
         private bool _ended;
-        
+
         public event Action OnComicsEnded;
 
         private void Start()
         {
+            if (GameStateSaver.Instance.IsRestarted)
+            {
+                gameObject.SetActive(false);
+                if (stopTime)
+                    Time.timeScale = 1f;
+                OnComicsEnded?.Invoke();
+                return;
+            }
+            else gameObject.SetActive(true);
+
             for (var i = 0; i < startComicsCount; i++)
                 comices[i].gameObject.SetActive(true);
 
@@ -31,7 +41,7 @@ namespace ComicsSystem
         {
             if (_currentComicsNum + 1 > comices.Length)
             {
-                if(!_ended)
+                if (!_ended)
                 {
                     gameObject.SetActive(false);
                     if (stopTime)

@@ -76,8 +76,7 @@ namespace EndGameSystem.View
         {
             resultLabel.text = looseCaption;
 
-            if (!GameStateSaver.Instance.IsRestarted)
-                endComics.gameObject.SetActive(true);
+            endComics.gameObject.SetActive(true);
 
             nextLevelButton.gameObject.SetActive(false);
         }
