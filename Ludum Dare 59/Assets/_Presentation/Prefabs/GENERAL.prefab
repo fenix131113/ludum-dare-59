@@ -6040,7 +6040,7 @@ Transform:
   m_GameObject: {fileID: 1106674677313964280}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 30.91, y: -16.85, z: -10}
+  m_LocalPosition: {x: 24.79, y: 13.58, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29635,7 +29635,7 @@ MonoBehaviour:
   endComics: {fileID: 5332659361689270860}
   winComics: {fileID: 0}
   winCaption: You win!
-  looseCaption: You loose!
+  looseCaption: You lose!
   nextLevelButton: {fileID: 8373767859566002376}
   restartButton: {fileID: 1392812622972256005}
 --- !u!1 &6117597243462282821
@@ -30634,7 +30634,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1399919433570499293
 RectTransform:
   m_ObjectHideFlags: 0
@@ -32834,6 +32834,7 @@ MonoBehaviour:
   gameTime: 180
   signalTime: 52
   needSignalToWin: 4
+  isSignalTimerOn: 0
 --- !u!114 &871116685625770869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48453,6 +48454,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3169079111310448428}
     m_Modifications:
+    - target: {fileID: 719576355145004771, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
+      propertyPath: m_ShadowMesh.m_LocalBounds.m_Center.x
+      value: 29.53115
+      objectReference: {fileID: 0}
+    - target: {fileID: 719576355145004771, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
+      propertyPath: m_ShadowMesh.m_LocalBounds.m_Center.y
+      value: -0.5155029
+      objectReference: {fileID: 0}
+    - target: {fileID: 719576355145004771, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
+      propertyPath: m_ShadowMesh.m_LocalBounds.m_Extent.x
+      value: 2.0005417
+      objectReference: {fileID: 0}
+    - target: {fileID: 719576355145004771, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
+      propertyPath: m_ShadowMesh.m_LocalBounds.m_Extent.y
+      value: 2.890854
+      objectReference: {fileID: 0}
     - target: {fileID: 1762449481769585097, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Center.x
       value: 5.967514
@@ -48495,35 +48512,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4321903968740231395, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Center.x
-      value: 25.304733
+      value: 5.9781494
       objectReference: {fileID: 0}
     - target: {fileID: 4321903968740231395, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Center.y
-      value: -0.16283417
+      value: 5.039528
       objectReference: {fileID: 0}
     - target: {fileID: 4321903968740231395, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Extent.x
-      value: 26.637177
+      value: 45.96376
       objectReference: {fileID: 0}
     - target: {fileID: 4321903968740231395, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Extent.y
-      value: 23.64814
+      value: 18.445778
       objectReference: {fileID: 0}
     - target: {fileID: 4440683107090666366, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Center.x
-      value: 28.031258
+      value: 30.37445
       objectReference: {fileID: 0}
     - target: {fileID: 4440683107090666366, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Center.y
-      value: -11.234634
+      value: -8.643684
       objectReference: {fileID: 0}
     - target: {fileID: 4440683107090666366, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Extent.x
-      value: 4.500145
+      value: 1.1555786
       objectReference: {fileID: 0}
     - target: {fileID: 4440683107090666366, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
       propertyPath: m_ShadowMesh.m_LocalBounds.m_Extent.y
-      value: 3.588028
+      value: 0.99707794
       objectReference: {fileID: 0}
     - target: {fileID: 5089847911060568962, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
       propertyPath: m_Color.b
@@ -48624,6 +48641,14 @@ PrefabInstance:
     - target: {fileID: 7398480268545079747, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
       propertyPath: m_LocalBounds.m_Extent.y
       value: 8.8967495
+      objectReference: {fileID: 0}
+    - target: {fileID: 7490558954814590399, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
+      propertyPath: m_ShadowMesh.m_LocalBounds.m_Center.y
+      value: -6.1490707
+      objectReference: {fileID: 0}
+    - target: {fileID: 7490558954814590399, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
+      propertyPath: m_ShadowMesh.m_LocalBounds.m_Extent.y
+      value: 8.530022
       objectReference: {fileID: 0}
     - target: {fileID: 7514848325532516000, guid: 2c7b7344376eb354f8ff3b75516e1610, type: 3}
       propertyPath: m_Intensity

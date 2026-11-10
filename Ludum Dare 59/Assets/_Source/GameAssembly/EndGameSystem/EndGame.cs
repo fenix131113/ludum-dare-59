@@ -32,7 +32,7 @@ namespace EndGameSystem
         {
             if (isWin && _levelsRecorder)
                 _levelsRecorder.MarkLevelAsCompleted(_levelData.LevelNumber);
-            
+
             IsEnded = true;
             OnGameEnded?.Invoke(isWin);
         }
@@ -47,12 +47,18 @@ namespace EndGameSystem
             _game.OnGameTimerElapsed += OnGameElapsed;
             _game.OnSignalTimerElapsed += OnSignalElapsed;
             _game.OnSignalsReached += OnSignalsReached;
+
         }
 
         private void Expose()
         {
             _game.OnGameTimerElapsed -= OnGameElapsed;
             _game.OnSignalTimerElapsed -= OnSignalElapsed;
+        }
+
+        public void OnRestartToggle(bool isRestarted)
+        {
+            _levelsRecorder.IsRestarted = isRestarted;
         }
     }
 }

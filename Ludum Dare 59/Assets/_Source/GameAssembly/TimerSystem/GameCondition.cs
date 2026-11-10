@@ -10,6 +10,7 @@ namespace TimerSystem
         [SerializeField] private float gameTime;
         [SerializeField] private float signalTime;
         [SerializeField] private int needSignalToWin;
+        [SerializeField] private bool isSignalTimerOn;
         
         [Inject] private TimersHandler _timers;
         [Inject] private SignalHolder _signalHolder;
@@ -25,9 +26,9 @@ namespace TimerSystem
         
         private void Start()
         {
-            Bind();
             StartGameTimer();
-            
+            if (!isSignalTimerOn) return;
+            Bind();
             if(_signalHolder.GetCurrentSignal())
                 StartSignalTimer();
         }

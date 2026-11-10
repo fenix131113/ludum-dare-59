@@ -26,7 +26,7 @@ namespace EndGameSystem.View
         [SerializeField] private Button restartButton;
 
         [Inject] private EndGame _endGame;
-        [Inject] private IVariablesResolver<PlayerVariableBlockerType, Action, Action>  _variablesResolver;
+        [Inject] private IVariablesResolver<PlayerVariableBlockerType, Action, Action> _variablesResolver;
         [Inject] private LevelDataSO _levelData;
 
         private readonly PlayerVariableBlocker _endBlocker = new(PlayerVariableBlockerType.ALL);
@@ -38,23 +38,32 @@ namespace EndGameSystem.View
         private void OnGameEnded(bool isWin)
         {
             _variablesResolver.RegisterBlocker(_endBlocker);
-            
-            if(isWin)
+
+            if (isWin)
                 Win();
             else
                 Loose();
-            
+
             if (_levelData.NextLevelIndex == -1)
-                            nextLevelButton.gameObject.SetActive(false);
-            
+                nextLevelButton.gameObject.SetActive(false);
+
             endPanel.SetActive(true);
         }
 
-        private void OnMenuButtonClicked() => SceneManager.LoadScene(menuSceneIndex);
+        private void OnMenuButtonClicked()
+        {
+            GameStateSaver.Instance.IsRestarted = false;
+            SceneManager.LoadScene(menuSceneIndex);
+        }
+
 
         private void OnNextLevelButtonClicked() => SceneManager.LoadScene(_levelData.NextLevelIndex);
 
-        private void OnRestartButtonClicked() => SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        private void OnRestartButtonClicked()
+        {
+            GameStateSaver.Instance.IsRestarted = true;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
 
         private void Win()
         {
@@ -66,10 +75,13 @@ namespace EndGameSystem.View
         private void Loose()
         {
             resultLabel.text = looseCaption;
-            endComics.gameObject.SetActive(true);
+
+            if (!GameStateSaver.Instance.IsRestarted)
+                endComics.gameObject.SetActive(true);
+
             nextLevelButton.gameObject.SetActive(false);
         }
-        
+
         private void Bind()
         {
             _endGame.OnGameEnded += OnGameEnded;

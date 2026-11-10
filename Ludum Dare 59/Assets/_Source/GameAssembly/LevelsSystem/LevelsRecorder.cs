@@ -5,6 +5,7 @@ namespace LevelsSystem
 {
     public class LevelsRecorder : MonoBehaviour
     {
+        public bool IsRestarted;
         private readonly List<int> _completedLevels = new();
         
         private void Awake()
