@@ -1,9 +1,12 @@
+using Player;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Utils.Extensions;
+using VContainer;
 
 namespace MiniGames.Games.DoorPassword
 {

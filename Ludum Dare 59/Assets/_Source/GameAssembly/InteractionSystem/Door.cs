@@ -50,14 +50,21 @@ namespace InteractionSystem
             Expose();
         }
 
+        private void OnMinigameExit()
+        {
+            Expose();
+        }
+
         private void Bind()
         {
             _minigamesManager.OnMinigameStateChanged += OnMinigameStateChanged;
+            _minigamesManager.OnMinigameExited += OnMinigameExit;
         }
 
         private void Expose()
         {
             _minigamesManager.OnMinigameStateChanged -= OnMinigameStateChanged;
+            _minigamesManager.OnMinigameExited -= OnMinigameExit;
         }
     }
 }

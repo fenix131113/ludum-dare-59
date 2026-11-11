@@ -59,11 +59,13 @@ namespace MiniGames.View
         private void Bind()
         {
             _minigamesManager.OnMinigameStateChanged += OnMinigameStateChanged;
+            _minigamesManager.OnMinigameExited += OnMinigameStateChanged;
         }
 
         private void Expose()
         {
             _minigamesManager.OnMinigameStateChanged -= OnMinigameStateChanged;
+            _minigamesManager.OnMinigameExited -= OnMinigameStateChanged;
         }
     }
 }
