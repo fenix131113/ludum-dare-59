@@ -14,6 +14,7 @@ namespace MiniGames.Games.DoorPassword
     {
         [SerializeField] private GameObject minigamePanel;
         [SerializeField] private DoorPasswordButton[] passwordButtons;
+        [SerializeField] private Button exitButton;
         [SerializeField] private TMP_Text passwordHintText;
         [SerializeField] private TMP_Text currentInputText;
         [SerializeField] private Image monitorImage;
@@ -105,6 +106,11 @@ namespace MiniGames.Games.DoorPassword
             RedrawInput();
         }
 
+        private void OnExitButtonClicked()
+        {
+            Invoke(nameof(InvokeGameExited), waitBeforeCloseTime);
+        }
+
         private bool IsPasswordCorrect()
         {
             if (_currentInput.Count != _password.Count)
@@ -184,6 +190,7 @@ namespace MiniGames.Games.DoorPassword
 
             foreach (var passwordButton in passwordButtons)
                 passwordButton.OnClicked += OnPasswordButtonClicked;
+            exitButton.onClick.AddListener(OnExitButtonClicked);
 
             _isBind = true;
         }
@@ -195,6 +202,7 @@ namespace MiniGames.Games.DoorPassword
 
             foreach (var passwordButton in passwordButtons)
                 passwordButton.OnClicked -= OnPasswordButtonClicked;
+            exitButton.onClick.RemoveListener(OnExitButtonClicked);
 
             _isBind = false;
         }

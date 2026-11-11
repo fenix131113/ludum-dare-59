@@ -35,6 +35,7 @@ namespace MiniGames
             _currentMinigame = minigame;
             _currentSignalEmitter = signalEmitter;
             _currentMinigame.GameEnded += EndMinigame;
+            _currentMinigame.GameExited += ExitFromMinigame;
             _playerInput.OnPauseClicked += ExitFromMinigame;
             _currentMinigame.StartMinigame();
             _variablesResolver?.RegisterBlocker(_minigameBlocker);
@@ -50,6 +51,7 @@ namespace MiniGames
             
             _currentMinigame.EndMinigame();
             _currentMinigame.GameEnded -= EndMinigame;
+            _currentMinigame.GameExited -= ExitFromMinigame;
             _playerInput.OnPauseClicked -= ExitFromMinigame;
             _currentMinigame = null;
             _minigameBlocker.Dispose();
