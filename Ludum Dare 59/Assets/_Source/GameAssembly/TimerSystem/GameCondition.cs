@@ -27,8 +27,8 @@ namespace TimerSystem
         private void Start()
         {
             StartGameTimer();
-            if (!isSignalTimerOn) return;
             Bind();
+            if (!isSignalTimerOn) return;
             if(_signalHolder.GetCurrentSignal())
                 StartSignalTimer();
         }

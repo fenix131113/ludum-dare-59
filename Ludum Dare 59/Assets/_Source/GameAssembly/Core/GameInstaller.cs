@@ -20,6 +20,7 @@ namespace Core
     {
         [SerializeField] private PlayerSettingsSO playerSettings;
         [SerializeField] private LevelDataSO levelData;
+        [SerializeField] private SceneTransitionEffect sceneTransition;
 
         private InputSystem_Actions _inputActions;
         private static GameInstaller _instance;
@@ -71,7 +72,10 @@ namespace Core
             builder.RegisterComponentInHierarchy<AstarPath>();
             builder.Register<EndGame>(Lifetime.Scoped);
             builder.RegisterInstance(levelData);
-            
+
+            builder.RegisterInstance(sceneTransition);
+            builder.RegisterComponentInHierarchy<SceneLoader>();
+
             var minigames = FindObjectsByType<BaseMinigame>(
                 FindObjectsInactive.Include,
                 FindObjectsSortMode.None);

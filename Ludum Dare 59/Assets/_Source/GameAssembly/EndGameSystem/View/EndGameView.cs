@@ -7,6 +7,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Utils;
 using Utils.VariablesSystem;
 using VContainer;
 
@@ -28,6 +29,7 @@ namespace EndGameSystem.View
         [Inject] private EndGame _endGame;
         [Inject] private IVariablesResolver<PlayerVariableBlockerType, Action, Action> _variablesResolver;
         [Inject] private LevelDataSO _levelData;
+        [Inject] private SceneLoader _sceneLoader;
 
         private readonly PlayerVariableBlocker _endBlocker = new(PlayerVariableBlockerType.ALL);
 
@@ -52,17 +54,17 @@ namespace EndGameSystem.View
 
         private void OnMenuButtonClicked()
         {
-            GameStateSaver.Instance.IsRestarted = false;
-            SceneManager.LoadScene(menuSceneIndex);
+            GameStateSaver.IsRestarted = false;
+            _sceneLoader.LoadScene(menuSceneIndex);
         }
 
 
-        private void OnNextLevelButtonClicked() => SceneManager.LoadScene(_levelData.NextLevelIndex);
+        private void OnNextLevelButtonClicked() => _sceneLoader.LoadScene(_levelData.NextLevelIndex);
 
         private void OnRestartButtonClicked()
         {
-            GameStateSaver.Instance.IsRestarted = true;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            GameStateSaver.IsRestarted = true;
+            _sceneLoader.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
 
         private void Win()

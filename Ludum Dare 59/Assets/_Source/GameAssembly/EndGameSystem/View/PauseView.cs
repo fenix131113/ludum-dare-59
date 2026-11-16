@@ -7,6 +7,7 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Utils;
 using Utils.VariablesSystem;
 using VContainer;
 
@@ -21,6 +22,7 @@ public class PauseView : MonoBehaviour
     [Inject] private IVariablesResolver<PlayerVariableBlockerType, Action, Action> _variablesResolver;
     [Inject] private MinigamesManager _minigamesManager;
     [Inject] private PlayerInput _playerInput;
+    [Inject] private SceneLoader _sceneLoader;
 
     private readonly PlayerVariableBlocker _pauseBlocker = new(PlayerVariableBlockerType.ALL);
 
@@ -31,9 +33,9 @@ public class PauseView : MonoBehaviour
 
     private void OnRestartButtonClicked()
     {
-        GameStateSaver.Instance.IsRestarted = true;
+        GameStateSaver.IsRestarted = true;
         TogglePause();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        _sceneLoader.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private void OnContinueButtonClicked()
@@ -43,9 +45,9 @@ public class PauseView : MonoBehaviour
 
     private void OnMenuButtonClicked()
     {
-        GameStateSaver.Instance.IsRestarted = false;
+        GameStateSaver.IsRestarted = false;
         TogglePause();
-        SceneManager.LoadScene(menuSceneIndex);
+        _sceneLoader.LoadScene(menuSceneIndex);
     }
 
     private void OnPauseClick()

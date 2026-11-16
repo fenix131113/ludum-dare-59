@@ -18,7 +18,7 @@ namespace ComicsSystem
 
         private void Start()
         {
-            if (GameStateSaver.Instance.IsRestarted)
+            if (GameStateSaver.IsRestarted)
             {
                 gameObject.SetActive(false);
                 if (stopTime)
