@@ -11,7 +11,7 @@ namespace TimerSystem
         [SerializeField] private float signalTime;
         [SerializeField] private int needSignalToWin;
         [SerializeField] private bool isSignalTimerOn;
-        
+
         [Inject] private TimersHandler _timers;
         [Inject] private SignalHolder _signalHolder;
 
@@ -23,13 +23,13 @@ namespace TimerSystem
         public event Action OnSignalTimerElapsed;
         public event Action OnCurrentSignalsChanged;
         public event Action OnSignalsReached;
-        
+
         private void Start()
         {
             StartGameTimer();
             Bind();
             if (!isSignalTimerOn) return;
-            if(_signalHolder.GetCurrentSignal())
+            if (_signalHolder.GetCurrentSignal())
                 StartSignalTimer();
         }
 
@@ -47,12 +47,12 @@ namespace TimerSystem
 
         private void StartSignalTimer()
         {
-            if(_signalTimer != null)
+            if (_signalTimer != null)
             {
                 _timers.UnregisterTimer(_signalTimer.ID);
                 _signalTimer.OnTimeElapsed -= SignalTimerElapsed;
             }
-             
+
             _signalTimer = new Timer(signalTime);
             _timers.RegisterTimer(_signalTimer);
             BindSignalTimer();
@@ -63,13 +63,13 @@ namespace TimerSystem
             _signalTimer?.Pause();
             OnGameTimerElapsed?.Invoke();
         }
-        
+
         private void SignalTimerElapsed(Timer _)
         {
             _gameTimer.Pause();
             OnSignalTimerElapsed?.Invoke();
         }
-        
+
         private void OnSignalSpawned()
         {
             StartSignalTimer();
@@ -79,15 +79,16 @@ namespace TimerSystem
         {
             _currentSignals++;
             OnCurrentSignalsChanged?.Invoke();
-            
-            if(_currentSignals < needSignalToWin)
+
+            if (_currentSignals < needSignalToWin)
                 return;
-            
+
             _gameTimer.Pause();
-            _signalTimer.Pause();
             OnSignalsReached?.Invoke();
+            if (!isSignalTimerOn) return;
+            _signalTimer.Pause();
         }
-        
+
         public Timer GetGameTimer() => _gameTimer;
         public Timer GetSignalTimer() => _signalTimer;
         public int GetCurrentSignalsCount() => _currentSignals;
@@ -95,8 +96,9 @@ namespace TimerSystem
 
         private void Bind()
         {
-            _signalHolder.OnSignalSpawned += OnSignalSpawned;
             _signalHolder.OnSignalSent += OnSignalSent;
+            if (!isSignalTimerOn) return;
+            _signalHolder.OnSignalSpawned += OnSignalSpawned;
         }
 
         private void BindGameTimer()
@@ -111,14 +113,14 @@ namespace TimerSystem
 
         private void Expose()
         {
-            if(_gameTimer != null)
+            if (_gameTimer != null)
                 _gameTimer.OnTimeElapsed -= GameTimerElapsed;
-            
-            if(_signalTimer != null)
+
+            if (_signalTimer != null)
                 _signalTimer.OnTimeElapsed -= SignalTimerElapsed;
-            
-            _signalHolder.OnSignalSpawned -= OnSignalSpawned;
             _signalHolder.OnSignalSent -= OnSignalSent;
+            if (!isSignalTimerOn) return;
+            _signalHolder.OnSignalSpawned -= OnSignalSpawned;
         }
     }
 }

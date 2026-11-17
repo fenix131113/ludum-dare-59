@@ -19,9 +19,9 @@ public class SceneTransitionEffect : MonoBehaviour
         
 
         Vector2 centerPos = imageTransform.anchoredPosition;
-        Vector2 endPos = new Vector2(2000f, centerPos.y);
+        Vector2 endPos = new Vector2(5000f, centerPos.y);
 
-        imageTransform.anchoredPosition = new Vector2(-2000f, centerPos.y);
+        imageTransform.anchoredPosition = new Vector2(-5000f, centerPos.y);
 
         Sequence seq = DOTween.Sequence().SetUpdate(true);
 
@@ -34,14 +34,14 @@ public class SceneTransitionEffect : MonoBehaviour
 
         Vector2 centerPos = new Vector2(0, imageTransform.anchoredPosition.y);
 
-        imageTransform.anchoredPosition = new Vector2(-2000f, centerPos.y);
+        imageTransform.anchoredPosition = new Vector2(-5000f, centerPos.y);
 
         imageTransform.DOAnchorPos(centerPos,slideDuration).SetUpdate(true);
     }
 
     public void ShowView()
     {
-        Vector2 endPos = new Vector2(2000f, imageTransform.anchoredPosition.y);
+        Vector2 endPos = new Vector2(5000f, imageTransform.anchoredPosition.y);
 
         imageTransform.DOAnchorPos(endPos,slideDuration).SetUpdate(true);
     }

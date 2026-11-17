@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 29e752e4bd1235149a626064eb7eaf95
+guid: f924d58778541b44988149b74038e753
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3599739974211350356
-    second: Captha_Buttont_FILE_0
+      213: 1583430091128417497
+    second: Transition_FILE_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -46,7 +46,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -113,45 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Captha_Buttont_FILE_0
+      name: Transition_FILE_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 61
-        height: 16
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: ca0db51d0972b0ec0800000000000000
-      internalID: -3599739974211350356
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Captha_Buttont_FILE_1
-      rect:
-        serializedVersion: 2
-        x: 61
-        y: 0
-        width: 61
-        height: 16
+        width: 480
+        height: 224
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 8db420539f6f6fe42862fefe10ed9e43
-      internalID: -1161483454
+      spriteID: 9dcaf5c474979f510800000000000000
+      internalID: 1583430091128417497
       vertices: []
       indices: 
       edges: []
@@ -160,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 637269f92c22c6f49b7da103d5533327
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -170,8 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Captha_Buttont_FILE_0: -3599739974211350356
-      Captha_Buttont_FILE_1: -1161483454
+      Transition_FILE_0: 1583430091128417497
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

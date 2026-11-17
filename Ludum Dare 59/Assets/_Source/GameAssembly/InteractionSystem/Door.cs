@@ -13,6 +13,7 @@ namespace InteractionSystem
         [SerializeField] private SpriteRenderer doorRenderer;
         [SerializeField] private Collider2D doorCollider;
         [SerializeField] private Sprite openedSprite;
+        [SerializeField] private Animator animator;
         
         [Inject] private AstarPath _path;
         [Inject] private MinigamesManager _minigamesManager;
@@ -35,7 +36,7 @@ namespace InteractionSystem
         
         public void Open()
         {
-            doorRenderer.sprite = openedSprite;
+            animator.Play("Open_Door");
             doorCollider.enabled = false;
             _opened = true;
             _path.Scan();
