@@ -1,5 +1,11 @@
+using MiniGames.Games.FilesDrag;
+using NUnit.Framework;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 using VContainer;
 
 namespace MiniGames.View
@@ -9,24 +15,90 @@ namespace MiniGames.View
         [SerializeField] private RectTransform handRect;
         [SerializeField] private Canvas rootCanvas;
         [SerializeField] private Vector2 pointerOffset;
+        [SerializeField] private Image image;
+        [SerializeField] private Sprite interactCursor;
+        [SerializeField] private Sprite holdCursor;
+        [SerializeField] private Sprite defaultCursor;
+        [SerializeField] private Sprite dragCursor;
 
         [Inject] private MinigamesManager _minigamesManager;
 
         private void Start()
         {
-            Bind();
-            RedrawState();
+            Cursor.lockState = CursorLockMode.Confined;
+            Cursor.visible = false;
+            // Bind();
+            // RedrawState();
         }
 
         private void Update()
         {
-            if (!_minigamesManager.IsPlaying || !handRect)
+            if (!handRect)
                 return;
 
             MoveToPointer();
+
+            if (CheckForButtons())
+            {
+                if (Mouse.current.leftButton.isPressed)
+                    image.sprite = defaultCursor;
+                else
+                    image.sprite = interactCursor;
+            }
+            else if (CheckForDraggables())
+            {
+                if (Mouse.current.leftButton.isPressed)
+                    image.sprite = holdCursor;
+                else
+                    image.sprite = dragCursor;
+            }
+            else
+                image.sprite = defaultCursor;
+            image.SetNativeSize();
         }
 
-        private void OnDestroy() => Expose();
+        private bool CheckForDraggables()
+        {
+            PointerEventData pointerData = new PointerEventData(EventSystem.current);
+
+            pointerData.position = Mouse.current.position.value;
+
+            List<RaycastResult> results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(pointerData, results);
+
+            foreach (RaycastResult r in results)
+            {
+                DragFileItem dragItem = r.gameObject.GetComponentInParent<DragFileItem>();
+                if (dragItem != null)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        private bool CheckForButtons()
+        {
+            PointerEventData pointerData = new PointerEventData(EventSystem.current);
+
+            pointerData.position = Mouse.current.position.value;
+
+            List<RaycastResult> results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(pointerData, results);
+
+            foreach (RaycastResult hit in results)
+            {
+                Button btn = hit.gameObject.GetComponentInParent<Button>();
+
+                if (btn != null && btn.interactable)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        // private void OnDestroy() => Expose();
 
         private void MoveToPointer()
         {

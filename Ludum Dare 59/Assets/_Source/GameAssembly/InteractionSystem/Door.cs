@@ -14,11 +14,11 @@ namespace InteractionSystem
         [SerializeField] private Collider2D doorCollider;
         [SerializeField] private Sprite openedSprite;
         [SerializeField] private Animator animator;
-        
+
         [Inject] private AstarPath _path;
         [Inject] private MinigamesManager _minigamesManager;
-        
-        private DoorPasswordMinigame  _passwordGame;
+
+        private DoorPasswordMinigame _passwordGame;
         private bool _opened;
 
         private void Start()
@@ -33,20 +33,23 @@ namespace InteractionSystem
             _minigamesManager.PlayMinigame(_passwordGame);
             Bind();
         }
-        
+
         public void Open()
         {
-            animator.Play("Open_Door");
-            doorCollider.enabled = false;
             _opened = true;
             _path.Scan();
+            if (animator)
+                animator.Play("Open_Door");
+            else
+                doorRenderer.sprite = openedSprite;
+            doorCollider.enabled = false;
         }
 
         private void OnMinigameStateChanged()
         {
-            if(_minigamesManager.IsPlaying)
+            if (_minigamesManager.IsPlaying)
                 return;
-            
+
             Open();
             Expose();
         }

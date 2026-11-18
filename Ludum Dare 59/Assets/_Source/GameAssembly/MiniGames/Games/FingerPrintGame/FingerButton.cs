@@ -8,6 +8,7 @@ namespace MiniGames.Games.FingerPrintGame
     {
         [SerializeField] private Button button;
         [SerializeField] private Image buttonImage;
+        public Image selectedIconImage;
 
         public int Index { get; private set; }
 

@@ -9,7 +9,7 @@ namespace MiniGames.Games.DoorPassword
         [SerializeField] private int value;
         [SerializeField] private Button button;
         [SerializeField] private Image targetImage;
-        [SerializeField] private Color defaultColor = Color.white;
+        [SerializeField] private Sprite defaultSprite;
         [SerializeField] private Color pressedColor;
 
         private bool _isBind;
@@ -30,7 +30,7 @@ namespace MiniGames.Games.DoorPassword
         {
             if (targetImage && button)
             {
-                targetImage.color = pressedColor;
+                targetImage.sprite = button.spriteState.pressedSprite;
                 button.enabled = false;
             }
 
@@ -41,8 +41,8 @@ namespace MiniGames.Games.DoorPassword
         {
             if (!targetImage || !button)
                 return;
-            
-            targetImage.color = defaultColor;
+
+            targetImage.sprite = defaultSprite;
             button.enabled = true;
         }
 

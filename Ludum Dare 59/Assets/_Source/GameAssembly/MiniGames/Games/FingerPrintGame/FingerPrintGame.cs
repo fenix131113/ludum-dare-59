@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using DG.Tweening;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,6 +15,7 @@ namespace MiniGames.Games.FingerPrintGame
         [SerializeField] private List<FingerButton> fingersButtons;
         [SerializeField] private Sprite[] variants;
         [SerializeField] private Sprite[] bigVariants;
+        [SerializeField] private float scaleAnimTime = 0.3f;
 
         private int _rightAnswerIndex;
         private FingerButton _currentAnswerButton;
@@ -59,13 +61,15 @@ namespace MiniGames.Games.FingerPrintGame
 
         private void OnConfirmButtonClicked()
         {
-            if(!_currentAnswerButton)
+            if (!_currentAnswerButton)
                 return;
-            
-            if(_currentAnswerButton.Index == _rightAnswerIndex)
+
+            if (_currentAnswerButton.Index == _rightAnswerIndex)
                 InvokeGameEnded();
             else
             {
+                _currentAnswerButton.selectedIconImage.gameObject.SetActive(false);
+                _currentAnswerButton.gameObject.transform.DOScale(new Vector3(1, 1), scaleAnimTime);
                 _currentAnswerButton.SetInteractable(true);
                 _currentAnswerButton = null;
                 confirmButton.interactable = false;
@@ -74,23 +78,27 @@ namespace MiniGames.Games.FingerPrintGame
 
         private void OnFingerButtonClicked(FingerButton button)
         {
+            _currentAnswerButton?.gameObject.transform.DOScale(new Vector3(1, 1), scaleAnimTime);
+            _currentAnswerButton?.selectedIconImage.gameObject.SetActive(false);
             _currentAnswerButton?.SetInteractable(true);
             _currentAnswerButton = button;
             _currentAnswerButton.SetInteractable(false);
+            _currentAnswerButton.selectedIconImage.gameObject.SetActive(true);
+            _currentAnswerButton.gameObject.transform.DOScale(new Vector3(0.8f, 0.8f), scaleAnimTime);
             confirmButton.interactable = true;
         }
 
         private void Bind()
         {
             confirmButton.onClick.AddListener(OnConfirmButtonClicked);
-            
+
             fingersButtons.ForEach(x => x.OnClick += OnFingerButtonClicked);
         }
 
         private void Expose()
         {
             confirmButton.onClick.RemoveAllListeners();
-            
+
             fingersButtons.ForEach(x => x.OnClick -= OnFingerButtonClicked);
         }
     }

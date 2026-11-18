@@ -1,5 +1,6 @@
 using Player;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -13,17 +14,21 @@ namespace MiniGames.Games.DoorPassword
     public class DoorPasswordMinigame : BaseMinigame
     {
         [SerializeField] private GameObject minigamePanel;
+        [SerializeField] private GameObject minigameBlocker;
         [SerializeField] private DoorPasswordButton[] passwordButtons;
         [SerializeField] private Button exitButton;
         [SerializeField] private TMP_Text passwordHintText;
         [SerializeField] private TMP_Text currentInputText;
         [SerializeField] private Image monitorImage;
+        [SerializeField] private Animator monitorAnimator;
         [SerializeField] private Sprite defaultMonitorSprite;
         [SerializeField] private Sprite successMonitorSprite;
         [SerializeField] private int passwordLength = 4;
         [SerializeField] private Image tabletImage;
         [SerializeField] private Image tabletBackImage;
         [SerializeField] private GameObject backFade;
+        [SerializeField] private GameObject minigameGO;
+        [SerializeField] private GameObject hintGO;
         [SerializeField] private float waitBeforeCloseTime = 0.25f;
 
         private readonly List<int> _password = new();
@@ -36,8 +41,8 @@ namespace MiniGames.Games.DoorPassword
 
         public override void StartMinigame()
         {
-            ResetGame();
             minigamePanel.SetActive(true);
+            ResetGame();
             tabletImage.enabled = false;
             tabletBackImage.enabled = false;
             backFade.SetActive(true);
@@ -45,10 +50,12 @@ namespace MiniGames.Games.DoorPassword
 
         public override void EndMinigame()
         {
+            minigameBlocker.SetActive(false);
             minigamePanel.SetActive(false);
             tabletImage.enabled = true;
             tabletBackImage.enabled = true;
             backFade.SetActive(false);
+            hintGO.SetActive(false);
         }
 
         public override void ResetGame()
@@ -128,7 +135,7 @@ namespace MiniGames.Games.DoorPassword
         private void RedrawHint()
         {
             if (passwordHintText)
-                passwordHintText.text = string.Join(" ", _password);
+                passwordHintText.text = string.Join("", _password);
         }
 
         private void RedrawInput()
@@ -146,14 +153,15 @@ namespace MiniGames.Games.DoorPassword
 
         private void SetMonitorSuccessState()
         {
-            if (monitorImage && successMonitorSprite)
-                monitorImage.sprite = successMonitorSprite;
+            minigameGO.SetActive(false);
+
+            if (monitorImage && monitorAnimator)
+                monitorAnimator.SetTrigger("OpenDoor");
         }
 
         private void ResetMonitorState()
         {
-            if (monitorImage && defaultMonitorSprite)
-                monitorImage.sprite = defaultMonitorSprite;
+
         }
 
         private void ResetButtonsState()
